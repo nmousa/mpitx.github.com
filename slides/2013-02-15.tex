@@ -1,0 +1,135 @@
+\documentclass{beamer}
+\usetheme{Berlin}
+\usecolortheme[light,accent=blue]{solarized}
+\usepackage{booktabs}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{graphicx}
+
+\title{OpenCUDA + MPI}
+\subtitle{A Framework for Heterogeneous GP-GPU Distributed Computing}
+\author[Ballou]{Kenny Ballou}
+
+\begin{document}
+\frame{\titlepage}
+%Introduction
+\begin{frame}
+\frametitle{Introduction}
+\framesubtitle{Parallel and Distributed Computing}
+What is GP-GPU Distributed Computing?
+\begin{itemize}
+\item{Parallel:}
+\begin{itemize}
+\item{Processing concurrently}
+\end{itemize}
+\item{Distributed:}
+\begin{itemize}
+\item{Processing over many computers, typically in parallel, but not always}
+\item{Local}
+\item{Grid Computing}
+\end{itemize}
+\end{itemize}
+\end{frame}
+\begin{frame}
+%Applications
+\frametitle{Applications of Supercomputing}
+\framesubtitle{What can we do with Parallel and Distributed Computing?}
+\begin{itemize}
+\item{Solving (Large) Linear Systems}
+\begin{itemize}
+\item{LINPACK Benchmarks}
+\end{itemize}
+\item{Fluid Dynamic Simulations}
+\item{N-Body Simulations}
+\item{Brute-Force Password/Hash Cracking}
+\item{Prime Number Searching}
+\item{Protein Folding}
+\item{Image Analysis / Manipulation}
+\item{...}
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Who Uses Distributed Computing?}
+\begin{itemize}
+\item{Google -- Page Indexing}
+\begin{itemize}
+\item{Created Map-Reduce}
+\end{itemize}
+\item{Facebook -- Data Mining}
+\item{Universities}
+\item{Many Others}
+\end{itemize}
+\end{frame}
+\begin{frame}
+%Problem? Is there a problem?
+\frametitle{The Problem(s)}
+\begin{itemize}
+\item{"Distributed Programming" is expensive}
+\item{Specificity of Hardware}
+\item{Data}
+\begin{itemize}
+\item{Distribution}
+\item{Volume}
+\end{itemize}
+\item{Fault Tolerance}
+\end{itemize}
+\end{frame}
+\begin{frame}
+%Solution
+\frametitle{A Framework}
+\framesubtitle{Solutions}
+\begin{itemize}
+\item{Ease Programming Interface for Highly Parallel Distributed Computing}
+\item{Allow for Diversity in Computing Environment}
+\begin{itemize}
+\item{Bring together ideas from both types of distributed computing}
+\item{"Jungle Computing"}
+\end{itemize}
+\end{itemize}
+\end{frame}
+\begin{frame}
+%Plan
+\frametitle{Plan and Goals}
+\begin{itemize}
+\item{Develop a framework for distributed computing over a heterogeneous
+cluster}
+\item{Develop several different solutions for vascular extraction from CT
+angiography scans}
+\item{Profile the different solutions}
+\item{Add Cluster/ Node Configuration and Scheduling Options}
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Progress}
+Progressing more slowly than I anticipated
+\begin{itemize}
+\item{CUDA C/C++ and \texttt{pyCUDA}}
+\item{Cluster/ Node Administration (ongoing)}
+\item{\texttt{mpi4py} -- Begin learning the MPI interface and intricacies}
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Continuing Progress}
+\begin{itemize}
+\item{Continue Learning \texttt{mpi4py} and \texttt{pyCUDA}}
+\item{Combine \texttt{mpi4py} with \texttt{pyCUDA}}
+\item{...}
+\item{Begin developing framework}
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Acknowledgements}
+\begin{itemize}
+\item{Dr. Alark Joshi -- Mentor}
+\begin{itemize}
+\item{Graphics and Visualization}
+\end{itemize}
+\item{Nilab Mohammad Mousa -- Team Member}
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Thank You}
+Questions?
+\end{frame}
+\end{document}
