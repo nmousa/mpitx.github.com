@@ -40,9 +40,12 @@ def build_doc(doc_name):
             cmd.append("-draftmode")
         return xnt.call(cmd)
     def bibtex():
-        return xnt.call(["bibtex",
-                         os.path.join(properties["build.dir"],
-                         doc_name)])
+        xnt.cp("references.bib", properties["build.dir"])
+        cwd = os.getcwd()
+        os.chdir(properties["build.dir"])
+        r = xnt.call(["bibtex", doc_name])
+        os.chdir(cwd)
+        return r
     r1 = pdflatex(True)
     r2 = bibtex()
     r3 = pdflatex(True)
