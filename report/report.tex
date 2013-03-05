@@ -1,0 +1,78 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{fullpage}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{verbatim}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{color}
+%\usepackage{bibtex}
+
+\setlength{\headheight}{30pt}
+\setlength{\headsep}{0.2in}
+
+\definecolor{gray}{rgb}{0.5, 0.5, 0.5}
+
+\lstset{
+    language=Python,
+    basicstyle=\footnotesize,
+    numbers=left,
+    numberstyle=\scriptsize\color{gray},
+    stepnumber=1,
+    numbersep=5pt,
+    backgroundcolor=\color{white},
+    showspaces=false,
+    showstringspaces=false,
+    rulecolor=\black,
+    tabsize=4,
+    captionpos=t,
+    breaklines=true,
+    keywordstyle=\color{black},
+    commentstyle=\color{black},
+    stringstyle=\color{black}
+}
+
+\title{OpenCUDA+MPI\\
+       A Framework for Heterogeneous GP-GPU Distribute Computing}
+\date{\today}
+\author{Kenny Ballou\\
+        College of Engineering -- Department of Computer Science\\
+        Boise State University\\
+        Alark Joshi, Ph. D}
+
+\lhead{\fancyplain{}{Student Research Initiative 2013\\
+                     Progress Report}}
+\pagestyle{empty}
+
+\begin{document}
+\input{./title.tex}
+\nocite{*}
+\thispagestyle{fancy}
+\abstract{The introduction and rise of General Purpose Graphics Computing has
+significantly impacted parallel and high-performance computing. Even worse, it
+has brought about even more challenges when it comes to distributed computing
+(with GPU's). Current solutions target specifics: specific hardware, specific
+network topology, a specific level of sameness. What if we could ignore
+specifics? What if we could write a general algorithm to solve a problem and
+have a job scheduler do the rest? That is the goal of OpenCUDA+MPI. To achieve
+this goal, we have written a framework that allows a developer/ data scientist
+to write a general algorithm/ solution without the overhead of worrying about
+the specifics of the cluster it will run against. We have found, [nothing yet]
+and, therefore, can conclude [also nothing].}\\
+
+\textbf{Keywords:} Parallel Computing, Distributed Computing, General Purpose
+Graphics Processing, High-Performance Computing, Scientific Computing
+\include{Introduction}
+\include{Methodology}
+%\include{Results}
+%\include{Discussion}
+%\include{Conclusions}
+\appendix
+%\include{Appendices}
+\include{Reference}
+\end{document}
