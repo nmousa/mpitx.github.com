@@ -1,30 +1,27 @@
 #!/usr/bin/env python
+"""Slides build.py"""
 
 import xnt
-import xnt.tasks
+import xnt.build.tex
 
-@xnt.target
-def init():
-    xnt.tasks.mkdir("build")
+PROPERTIES = { "doc_name": "2013-02-15.tex", }
 
 @xnt.target
 def build():
-    init()
-    r1 = xnt.tasks.call(["pdflatex",
-                         "-output-directory",
-                         "build",
-                         "-draftmode",
-                         "2013-02-15.tex"])
-    r2 = xnt.tasks.call(["pdflatex",
-                         "-output-directory",
-                         "build",
-                         "2013-02-15.tex"])
-    return r1 | r2
+    """Build Slides"""
+    return xnt.build.tex.pdflatex(PROPERTIES["doc_name"])
 
 @xnt.target
 def clean():
-    xnt.tasks.rm("build")
+    """Clean up generated files"""
+    xnt.rm("*.toc",
+           "*.aux",
+           "*.log",
+           "*.out")
+    if "clean_pdf" in PROPERTIES:
+        xnt.rm("*.pdf")
 
 @xnt.target
 def default():
+    """Build Slides"""
     build()
