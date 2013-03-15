@@ -1,0 +1,133 @@
+\documentclass{beamer}
+\usetheme{Berlin}
+\usecolortheme[light,accent=blue]{solarized}
+\usepackage{booktabs}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{graphicx}
+\setbeamertemplate{headline}{}
+
+\title{OpenCUDA+MPI}
+\subtitle{A Framework for Heterogeneous GP-GPU Distributed Computing}
+\author[Ballou]{Kenny Ballou}
+
+\begin{document}
+\begin{frame}[label=titleslide]
+\titlepage
+\end{frame}
+\begin{frame}
+\frametitle{Overview}
+\tableofcontents
+\end{frame}
+\section{A Little About Methodology}
+\begin{frame}
+\tableofcontents[currentsection]
+\end{frame}
+\subsection{Implementation Details}
+\begin{frame}
+\frametitle{Implementation Details}
+\begin{itemize}
+\item{Arch Linux}
+\item{Python}
+\item{Salt}
+\item{CUDA}
+\item{(Open)MPI}
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Arch Linux}
+\begin{itemize}
+\item{Core Tenet: Minimalism}
+\item{Small}
+\item{Lightweight}
+\item{Familiarity}
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Python}
+\begin{itemize}
+\item{Development Speed: Expressive and Readable}
+\item{Fast Enough}
+\begin{itemize}
+\item{Written in \texttt{C/C++}}
+\end{itemize}
+\item{Where slow, allows use of \texttt{C/C++} code}
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Salt}
+\framesubtitle{More than just NaCl}
+Provisioning tool for managing infrastructure
+\begin{itemize}
+\item{Allows for "Push" based state changes}
+\item{Remote Execution}
+\item{Simplicity}
+\item{Fast}
+\end{itemize}
+\end{frame}
+\section{Task Updates}
+\begin{frame}
+\tableofcontents[currentsection]
+\end{frame}
+\subsection{Tasks Completed}
+\begin{frame}
+\frametitle{Tasks Completed}
+\begin{itemize}
+\item{Learn and Write "Hello World" Programs with \texttt{MPI},
+\texttt{mpi4py}, and \texttt{pyCUDA}}
+\item{Write/ Modify Node Build Script}
+\begin{itemize}
+\item{Add Configuration}
+\end{itemize}
+\item{Start adding `Salt'}
+\end{itemize}
+\end{frame}
+\subsection{Moving Forward}
+\begin{frame}
+\frametitle{Moving Forward}
+\begin{itemize}
+\item{Finish Creating Salt States and Configuration}
+\item{Stabilize Environment}
+\item{Continue Learning \texttt{MPI} and \texttt{pyCUDA}}
+\item{Develop Framework}
+\end{itemize}
+\end{frame}
+\subsection{Problems Encountered}
+\begin{frame}
+\frametitle{Problems Encountered}
+\begin{itemize}
+\item{Power Requirements}
+\item{Node Stability/ Package (Mis-)Management}
+\item{NFS Share \texttt{/home} performance}
+\item{Time}
+\end{itemize}
+\end{frame}
+\section{Upcoming}
+\begin{frame}
+\tableofcontents[currentsection]
+\end{frame}
+\subsection{Foreseeable Problems and Challenges}
+\begin{frame}
+\frametitle{Foreseeable Problems and Challenges}
+\begin{itemize}
+\item{Data Distribution}
+\begin{itemize}
+\item{NFS Share will not suffice}
+\end{itemize}
+\item{Fault Tolerance}
+\item{Optimizing Resources and Utilization}
+\end{itemize}
+\end{frame}
+\subsection{Later Tasks and Potential Solutions}
+\begin{frame}
+\frametitle{Later Tasks and Potential Solutions}
+\begin{itemize}
+\item{Request(ing) more suitable and stable power}
+\item{Hadoop Distributed Filesystem}
+\end{itemize}
+\end{frame}
+\section*{Questions}
+\subsection*{Questions}
+\againframe{titleslide}
+\end{document}
