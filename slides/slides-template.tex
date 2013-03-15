@@ -1,16 +1,22 @@
 \documentclass{beamer}
-\usetheme{Szeged}
+\usetheme{Berlin}
 \usecolortheme[light,accent=blue]{solarized}
 \usepackage{booktabs}
 \usepackage{lmodern}
 \usepackage{listings}
 \usepackage{color}
 \usepackage{graphicx}
+\setbeamertemplate{headline}{}
 
 \title{OpenCUDA+MPI}
-\subtitle{A Framework for heterogeneous GP-GPU cluster computing}
+\subtitle{A Framework for Heterogeneous GP-GPU Cluster Computing}
 \author[Ballou]{Kenny Ballou}
 
 \begin{document}
-\frame{\titlepage}
+\begin{frame}[label=titleslide]
+\titlepage
+\end{frame}
+\begin{frame}
+\tableofcontents
+\end{frame}
 \end{document}
