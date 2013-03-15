@@ -20,11 +20,9 @@ def build():
 @xnt.target
 def clean():
     """Remove Generated Files"""
-    xnt.rm("*.toc",
-           "*.aux",
-           "*.bbl",
-           "*.out",
-           "*.log",
-           "*.blg")
-    if "clean_pdf" in PROPERTIES:
-        xnt.rm("*pdf")
+    xnt.build.tex.clean(path="./")
+
+@xnt.target
+def clean_pdf():
+    """Remove _all_ generated files (including PDF output)"""
+    xnt.build.tex.clean(path="./", remove_pdf=True)

@@ -12,16 +12,16 @@ def build():
     return xnt.build.tex.pdflatex(PROPERTIES["doc_name"])
 
 @xnt.target
-def clean():
-    """Clean/ remove generated files"""
-    return xnt.build.tex.clean()
-
-@xnt.target
-def clean_pdf():
-    """Clean/ remove generated files _including_ PDF's"""
-    return xnt.build.tex.clean(remove_pdf=True)
-
-@xnt.target
 def default():
     """Build Slides"""
     build()
+
+@xnt.target
+def clean():
+    """Remove Generated Files"""
+    xnt.build.tex.clean(path="./")
+
+@xnt.target
+def clean_pdf():
+    """Remove _all_ generated files (including PDF output)"""
+    xnt.build.tex.clean(path="./", remove_pdf=True)
