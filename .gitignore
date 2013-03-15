@@ -1,1 +1,12 @@
-build
+slides/*.pdf
+report/*.pdf
+**/*.log
+**/*.aux
+**/*.toc
+**/*.tol
+**/*.tof
+**/*.tot
+**/*.bbl
+**/*.nav
+**/*.snm
+**/*.out
