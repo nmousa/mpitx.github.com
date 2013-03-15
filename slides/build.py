@@ -4,7 +4,7 @@
 import xnt
 import xnt.build.tex
 
-PROPERTIES = { "doc_name": "2013-02-15.tex", }
+PROPERTIES = { "doc_name": "2013-03-15.tex", }
 
 @xnt.target
 def build():
@@ -13,13 +13,13 @@ def build():
 
 @xnt.target
 def clean():
-    """Clean up generated files"""
-    xnt.rm("*.toc",
-           "*.aux",
-           "*.log",
-           "*.out")
-    if "clean_pdf" in PROPERTIES:
-        xnt.rm("*.pdf")
+    """Clean/ remove generated files"""
+    return xnt.build.tex.clean()
+
+@xnt.target
+def clean_pdf():
+    """Clean/ remove generated files _including_ PDF's"""
+    return xnt.build.tex.clean(remove_pdf=True)
 
 @xnt.target
 def default():
