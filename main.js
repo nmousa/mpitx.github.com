@@ -1,6 +1,11 @@
 SlidesView = Backbone.View.extend({
-    templateContent: "<h4>Slides</h4>",
     initialize: function () {
+        jQuery.ajax({
+            url: "https://raw.github.com/mpitx/mpitx.github.com/master/slides.html",
+            success: function (htmlContent) {
+                this.templateContent = htmlContent;
+            }
+        });
         this.render();
     },
     render: function () {
@@ -11,6 +16,12 @@ SlidesView = Backbone.View.extend({
 ReportView = Backbone.View.extend({
     templateContent: "<h4>Report</h4>",
     initialize: function () {
+        jQuery.ajax({
+            url: "https://raw.github.com/mpitx/mpitx.github.com/master/report.html",
+            success: function (htmlContent) {
+                this.templateContent = htmlContent;
+            }
+        });
         this.render();
     },
     render: function () {
@@ -21,6 +32,12 @@ ReportView = Backbone.View.extend({
 CodeView = Backbone.View.extend({
     templateContent: "<h4>Projects and Code</h4>",
     initialize: function () {
+        jQuery.ajax({
+            url: "https://raw.github.com/mpitx/mpitx.github.com/master/code.html",
+            success: function (htmlContent) {
+                this.templateContent = htmlContent;
+            }
+        });
         this.render();
     },
     render: function () {
