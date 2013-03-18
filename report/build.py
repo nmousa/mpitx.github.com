@@ -15,7 +15,8 @@ def default():
 def build():
     """Build Report"""
     return xnt.build.tex.pdflatex(PROPERTIES["doc_name"] + ".tex",
-                                  bibtex=True)
+                                  bibtex=True,
+                                  makeglossary=True)
 
 @xnt.target
 def clean():
