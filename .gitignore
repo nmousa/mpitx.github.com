@@ -10,3 +10,8 @@ report/*.pdf
 **/*.nav
 **/*.snm
 **/*.out
+**/*.blg
+**/*.glo
+**/*.ist
+**/*.glg
+**/*.gls
