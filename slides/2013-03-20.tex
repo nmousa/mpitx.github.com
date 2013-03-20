@@ -1,0 +1,246 @@
+\documentclass{beamer}
+\usetheme{Berlin}
+\usecolortheme[light,accent=blue]{solarized}
+\usepackage{booktabs}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{graphicx}
+\setbeamertemplate{headline}{}
+
+\title{OpenCUDA+MPI}
+\subtitle{A Framework for Heterogeneous GP-GPU Cluster Computing}
+\author[Ballou]{Kenny Ballou}
+\AtBeginSection[]
+{
+\begin{frame}
+\tableofcontents[
+    currentsection,
+    hideothersubsections]
+\end{frame}
+}
+\begin{document}
+\begin{frame}[label=titleslide]
+\titlepage
+\end{frame}
+\begin{frame}
+\tableofcontents[subsectionstyle=hide]
+\end{frame}
+\section{GP-GPU Computing Introduction}
+\subsection{Parallel versus Distributed Computing}
+\begin{frame}
+\frametitle{Introduction}
+\framesubtitle{Parallel and Distributed Computing}
+What is GP-GPU Distributed Computing?
+\begin{itemize}
+\item{Parallel:}
+\begin{itemize}
+\item{Processing concurrently}
+\end{itemize}
+\item{Distributed:}
+\begin{itemize}
+\item{Processing over many computers, typically in parallel, but not always}
+\item{Local}
+\item{Grid Computing}
+\end{itemize}
+\end{itemize}
+\end{frame}
+\subsection{Applications of Supercomputing}
+\begin{frame}
+\frametitle{Applications of Supercomputing}
+\framesubtitle{What can we do with Parallel and Distributed Computing?}
+\begin{itemize}
+\item{Solving (Large) Linear Systems}
+\begin{itemize}
+\item{LINPACK Benchmarks}
+\end{itemize}
+\item{Fluid Dynamic Simulations}
+\item{N-Body Simulations}
+\item{Brute-Force Password/Hash Cracking}
+\item{Prime Number Searching}
+\item{Protein Folding}
+\item{Image Analysis / Manipulation}
+\item{\dots{}}
+\end{itemize}
+\end{frame}
+\subsection{Who Uses Supercomputing?}
+\begin{frame}
+\frametitle{Who Uses Supercomputing?}
+\textbf{ALL} The People
+\end{frame}
+\begin{frame}
+\frametitle{Who Uses Supercomputing?}
+\framesubtitle{No Really\dots{}}
+\begin{itemize}
+\item{Google -- Page Indexing}
+\begin{itemize}
+\item{Created Map-Reduce}
+\end{itemize}
+\item{Facebook -- Data Mining}
+\item{Universities}
+\item{Many Others}
+\end{itemize}
+\end{frame}
+\section{Problems and Solutions}
+\subsection{Problems with Current Solutions}
+\begin{frame}
+\frametitle{Problems}
+\begin{itemize}
+\item{"Distributed Programming" is expensive}
+\item{Specificity of Hardware}
+\item{Data}
+\begin{itemize}
+\item{Distribution}
+\item{Volume}
+\item{NFS}
+\end{itemize}
+\item{Fault Tolerance}
+\item{Optimizing Resources and Utilization}
+\end{itemize}
+\end{frame}
+\subsection{Solutions}
+\begin{frame}
+\frametitle{A Framework}
+\framesubtitle{Solutions}
+\begin{itemize}
+\item{Ease Programming Interface for Highly Parallel Distributed Computing}
+\item{Allow for Diversity in Computing Environment}
+\begin{itemize}
+\item{Bring together ideas from both types of distributed computing}
+\item{"Jungle Computing"}
+\end{itemize}
+\end{itemize}
+\end{frame}
+\subsection{Plans and Goals}
+\begin{frame}
+\frametitle{Plan and Goals}
+\begin{itemize}
+\item{Develop a framework for distributed computing over a heterogeneous
+cluster}
+\item{Develop several different solutions for vascular extraction from CT
+angiography scans}
+\item{Profile the different solutions}
+\item{Add Cluster/ Node Configuration and Scheduling Options}
+\item{Release as FOSS to the world}
+\end{itemize}
+\end{frame}
+\section{A Little About Methodology}
+\subsection{Implementation Details}
+\begin{frame}
+\frametitle{Implementation Details}
+\begin{itemize}
+\item{Arch Linux}
+\item{Salt}
+\item{Python}
+\item{CUDA}
+\item{(Open)MPI}
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Arch Linux}
+\begin{itemize}
+\item{Core Tenet: Minimalism}
+\item{Small}
+\item{Lightweight}
+\item{Familiarity}
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Salt}
+\framesubtitle{More than just NaCl}
+Provisioning tool for managing infrastructure
+\begin{itemize}
+\item{Allows for "Push" based state changes}
+\item{Remote Execution}
+\item{Simplicity}
+\item{Fast}
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{Python}
+\begin{itemize}
+\item{Development Speed: Expressive and Readable}
+\item{Fast Enough}
+\begin{itemize}
+\item{Written in \texttt{C/C++}}
+\end{itemize}
+\item{Great and Many Profiling Tools}
+\begin{itemize}
+\item{\texttt{time.time()}}
+\item{\texttt{timeit}}
+\item{\texttt{cProfile}}
+\item{\dots{}}
+\end{itemize}
+\item{Where slow, allows use of \texttt{C/C++} code}
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{CUDA}
+\framesubtitle{Compute Unified Device Architecture}
+\begin{itemize}
+\item{Established interface with (nVidia) GPU's}
+\item{\texttt{pyCUDA}}
+\begin{itemize}
+\item{Deferred CUDA kernel compilation}
+\end{itemize}
+\item{Familiarity}
+\end{itemize}
+\end{frame}
+\begin{frame}
+\frametitle{(Open)MPI}
+\begin{itemize}
+\item{Established interface for inter-process communication}
+\item{\texttt{mpi4py}}
+\begin{itemize}
+\item{One of the most complete MPI implementations}
+\end{itemize}
+\end{itemize}
+\end{frame}
+\section{What's Been Done}
+\subsection{What I have been doing}
+\begin{frame}
+\frametitle{Tasks}
+\begin{itemize}
+\item{Learning MPI, \texttt{mpi4py}, and \texttt{pyCUDA}}
+\item{Node/ Cluster Administration}
+\begin{itemize}
+\item{Node Build Scripts}
+\item{Salt Configuration}
+\begin{itemize}
+\item{Special Thanks to Danny}
+\end{itemize}
+\end{itemize}
+\item{\emph{Lots} of thinking}
+\end{itemize}
+\end{frame}
+\subsection{Moving Forward}
+\begin{frame}
+\frametitle{Moving Forward}
+\begin{itemize}
+\item{Finish Creating Salt States and Configuration}
+\item{Continue Learning \texttt{MPI} and \texttt{pyCUDA}}
+\item{Develop Framework}
+\end{itemize}
+\end{frame}
+\subsection{Problems Encountered}
+\begin{frame}
+\frametitle{Problems / Roadblocks}
+\begin{itemize}
+\item{Power Requirements}
+\item{NFS Share \texttt{/home} performance}
+\item{Time?}
+\end{itemize}
+\end{frame}
+\subsection{Potential Solutions}
+\begin{frame}
+\frametitle{Potential Solutions}
+\begin{itemize}
+\item{Request(ing) more suitable and stable power}
+\item{Researching Distributed Filesystems / File storage}
+\end{itemize}
+\end{frame}
+
+\section*{Questions}
+\subsection*{Questions}
+\againframe{titleslide}
+\end{document}
