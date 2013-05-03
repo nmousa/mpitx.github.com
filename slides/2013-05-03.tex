@@ -28,7 +28,7 @@
 \section{Project Introduction}
 \subsection{Project}
 \begin{frame}
-\frametitle{Project Introduction}
+\frametitle{Project}
 \framesubtitle{Parallel and Distributed Computing}
 What is GP-GPU Distributed Computing?
 \begin{itemize}
@@ -41,6 +41,10 @@ What is GP-GPU Distributed Computing?
 \begin{itemize}
 \item{Processing over many computers, not necessarily in parallel}
 \item{MPI}
+\end{itemize}
+\item{Combined}
+\begin{itemize}
+\item{CUDA+MPI}
 \end{itemize}
 \end{itemize}
 \end{frame}
@@ -66,8 +70,8 @@ What is GP-GPU Distributed Computing?
 \item{Develop Several Test Programs}
 \begin{itemize}
 \item{Vascular Extraction from CT angiography scans}
-\item{N-Body Simulation}
-\item{Prime Number Searching}
+\item{N-Body Simulation (possible)}
+\item{Prime Number Searching (possible)}
 \end{itemize}
 \item{Profile / Compare CPU-only, CUDA-only, MPI+CUDA Solutions}
 \end{itemize}
@@ -79,6 +83,7 @@ What is GP-GPU Distributed Computing?
 \begin{itemize}
 \item{Provision Software/Settings/Daemons}
 \item{Bring up and down Nodes}
+\item{Complete for all nodes except ``master''}
 \end{itemize}
 \end{frame}
 \subsection{\texttt{pyCUDA} + \texttt{MPI4PY}}
@@ -87,13 +92,80 @@ What is GP-GPU Distributed Computing?
 \begin{itemize}
 \item{\texttt{pyCUDA}}
 \begin{itemize}
-\item{}
+\item{Host to Device Memory Copies}
+\item{Device to Host Memory Copies}
+\item{Block, Thread Indexing Complexities}
+\item{\texttt{gpuarray}}
+\end{itemize}
+\item{MPI}
+\begin{itemize}
+\item{\texttt{mpirun} is a bit messy}
 \end{itemize}
 \item{\texttt{MPI4PY}:}
 \begin{itemize}
-\item{}
+\item{No Python 3.x support}
 \end{itemize}
 \end{itemize}
 \end{frame}
+\subsection{Initial Timing Results}
+\begin{frame}
+\frametitle{Timing Results / Comparison}
+\begin{table}[htb]
+\centering
+\begin{tabular}{lcc}
+\toprule{}
+\textbf{Method} & \textbf{Time (s)} & \textbf{Total Time (s)} \\
+\midrule{}
+CPU Only & & 254.13 \\
+\midrule{}
+CUDA (Single Node) & 13.83 & 4172 \\
+\midrule{}
+MPI + CUDA (7 nodes) & 10.51 & (average) 3177 \\
+\bottomrule{}
+\end{tabular}
+\caption{Computational Timing Comparison of $ 10^9 $ element wise vector
+summation}
+\label{tab:compTimeComapare}
+\end{table}
+\begin{itemize}
+\item{\textbf{LOTS} of IO}
+\item{Bad Example}
+\end{itemize}
+\end{frame}
 \section{Future Work}
+\subsection{Develop Framework}
+\begin{frame}
+\frametitle{Begin Framework Development}
+\begin{itemize}
+\item{Create Abstraction For CUDA and MPI}
+\begin{itemize}
+\item{Array Slicing Calculations}
+\end{itemize}
+\item{Create custom MPI runner}
+\begin{itemize}
+\item{Will Help with Scheduling}
+\end{itemize}
+\end{itemize}
+\end{frame}
+\subsection{Profiling and Testing}
+\begin{frame}
+\frametitle{Add Profiling, Unit Testing, and Integration Testing}
+\begin{itemize}
+\item{Use existing \texttt{Python} and \texttt{CUDA} profiling tools}
+\item{Interface Profiling tools into Framework}
+\item{Tests for sense of ``correctness''}
+\end{itemize}
+\end{frame}
+\subsection{Cluster Configuration}
+\begin{frame}
+\frametitle{Cluster Configuration / Management}
+\begin{itemize}
+\item{Add Salt Configuration for Master Node}
+\item{Research and Implement a distributed filesystem}
+\end{itemize}
+\end{frame}
+
+\section*{Questions}
+\subsection*{Questions}
+\againframe{titleslide}
 \end{document}
