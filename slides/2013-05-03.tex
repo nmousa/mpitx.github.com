@@ -1,0 +1,99 @@
+\documentclass{beamer}
+\usetheme{Berlin}
+\usecolortheme[light,accent=blue]{solarized}
+\usepackage{booktabs}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{graphicx}
+\setbeamertemplate{headline}{}
+
+\title{OpenCUDA+MPI}
+\subtitle{A Framework for Heterogeneous GP-GPU Cluster Computing}
+\author[Ballou]{Kenny Ballou}
+\AtBeginSection[]
+{
+    \begin{frame}
+    \tableofcontents[currentsection]
+    \end{frame}
+}
+
+\begin{document}
+\begin{frame}[label=titleslide]
+\titlepage
+\end{frame}
+\begin{frame}
+\tableofcontents[subsectionstyle=hide]
+\end{frame}
+\section{Project Introduction}
+\subsection{Project}
+\begin{frame}
+\frametitle{Project Introduction}
+\framesubtitle{Parallel and Distributed Computing}
+What is GP-GPU Distributed Computing?
+\begin{itemize}
+\item{Parallel:}
+\begin{itemize}
+\item{Processing concurrently}
+\item{CUDA}
+\end{itemize}
+\item{Distributed}
+\begin{itemize}
+\item{Processing over many computers, not necessarily in parallel}
+\item{MPI}
+\end{itemize}
+\end{itemize}
+\end{frame}
+\section{Project Goals / Objectives}
+\subsection{A Framework}
+\begin{frame}
+\frametitle{Framework}
+\begin{itemize}
+\item{Ease and abstract difficulties in Parallel / Distributed Programming}
+\item{Allow for Diversity in Computing Environment}
+\begin{itemize}
+\item{``Jungle'' Computing}
+\end{itemize}
+\item{Add process ``scheduler'' to best utilize available computing resources}
+\item{Add Cluster Configuration and Management}
+\item{Release as FOSS}
+\end{itemize}
+\end{frame}
+\subsection{Metrics of Goals}
+\begin{frame}
+\frametitle{Goal Metrics}
+\begin{itemize}
+\item{Develop Several Test Programs}
+\begin{itemize}
+\item{Vascular Extraction from CT angiography scans}
+\item{N-Body Simulation}
+\item{Prime Number Searching}
+\end{itemize}
+\item{Profile / Compare CPU-only, CUDA-only, MPI+CUDA Solutions}
+\end{itemize}
+\end{frame}
+\section{Project Results}
+\subsection{Configuration}
+\begin{frame}
+\frametitle{Salt Node Configuration}
+\begin{itemize}
+\item{Provision Software/Settings/Daemons}
+\item{Bring up and down Nodes}
+\end{itemize}
+\end{frame}
+\subsection{\texttt{pyCUDA} + \texttt{MPI4PY}}
+\begin{frame}
+\frametitle{\texttt{pyCUDA} + \texttt{MPI4PY}}
+\begin{itemize}
+\item{\texttt{pyCUDA}}
+\begin{itemize}
+\item{}
+\end{itemize}
+\item{\texttt{MPI4PY}:}
+\begin{itemize}
+\item{}
+\end{itemize}
+\end{itemize}
+\end{frame}
+\section{Future Work}
+\end{document}
