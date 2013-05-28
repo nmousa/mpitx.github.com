@@ -8,23 +8,64 @@ and \gls{cuda} for graphics computing.
 
 \subsection{Python}
 
-We will use Python because of its ease of development and plethora of existing
-libraries, as we will mention further below.\\
-
-Python also adds some advantages when it comes to usability when needing more
-performance. That is, if we discover a need for certain aspects of the project
-to be tuned and otherwise run faster, we can easily drop into C++ and write
-sections of the program in a more native language.
+We will use Python programming language because of its ease of development and
+plethora of existing libraries such as \gls{mpi}. Python also adds some
+advantages when it comes to usability when needing more performance.  For
+example, if we discover a need for certain aspects of the project to be tuned
+or otherwise run faster, we can easily switch to C or C++ and write sections of
+the program in a (more performant) native language.
 
 \subsection{MPI}
 
-We will use \gls{mpi} because it has established itself as the de-facto
-interface for cross process communication [citation needed]. To allow for
-interfacing with Python, we will use \texttt{mpi4py} because of its maturity
-and implementation completeness.
+Currently our cluster consists of 16 computers provided to our research lab by
+the computer science department of Boise State University. We will use
+\gls{mpi} because it has established itself as the de-facto interface for cross
+process communication \cite{website:MPI-Tutorial}. To allow for interfacing
+with Python \cite{website:mpi-4-python}, we will use \texttt{mpi4py} because of
+its maturity and implementation completeness.
 
 \subsection{CUDA}
 
-Further, we will be using \Gls{cuda} because of existing knowledge of the
+Further, we will be using \gls{cuda} because of existing knowledge of the
 framework and also because it is a well established framework for \gls{gpu}
 computing.
+
+
+\subsection{\texttt{CUDA+MPI}}
+
+Our framework's goal is to be able to manage the job queue to be run on
+\glspl{gpu} for a cluster of \gls{gpu}-capable computers. As more
+implementation work is done one or more of the parameters listed below will be
+considered to decide which particular job to run.
+
+\begin{itemize}
+    \item Job priority
+    \item Compute resource availability
+    \item Execution time allocated to user
+    \item Number of simultaneous jobs allowed for a node
+    \item Estimated execution time
+    \item Elapsed execution time
+    \item Availability of devices
+\end{itemize}
+
+
+\subsection{Testing}
+
+To evaluate the efficacy and accuracy of our framework several tests will be
+executed. As previously mentioned one of the first algorithms to be tested will
+be the problem of vessel extraction. Accurately extracting vascular structures
+from a Computerized Tomographic angiography--also called CT angiography
+scans--is important for creating oncologic surgery planning tools as well as
+medical visualization applications \cite{erdt2008automatic}.  Currently, we use
+a single \gls{gpu} to extract vascular structures from a CT angiography scan,
+which is computationally intensive. The following test programs will be
+developed as time allows:
+
+\begin{itemize}
+    \item N-Body Simulation
+    \item Prime Number Searching
+\end{itemize}
+
+Every test program will be evaluated in three categories: CPU-only,
+\gls{cuda}-only, and \texttt{CUDA+MPI}. Using the framework to accelerate the
+computational tasks will provide us with key insights on its usability.
