@@ -2,42 +2,44 @@
 \section{Related Works}
 
 Current approaches to accelerating research computations and engineering
-applications include parallel computing and distributed computing.  A parallel
+applications include parallel computing and distributed computing. A parallel
 system is when several processing elements work simultaneously to solve a
 problem faster. The primary consideration is elapsed time, not throughput or
 sharing of resources at remote locations. A distributed system is a collection
 of independent computers that appears to its users as a single coherent system.
 In distributed computing the data is split into smaller parts and subsequently
 spread across the system. The result is then collected and outputted. Summary
-of current solutions are listed in Table 1 below followed by detailed
-description of every entry.\\
+of current solutions are listed in \cref{tab:relatedProjects} below followed by
+detailed description of every entry.\\
 
 \begin{table}[htb]
 \centering
 \begin{tabular}{ll}
 \toprule{}
-\textbf{Project} & \textbf{Description} \\
+\textbf{Project}   & \textbf{Description} \\
 \midrule{}
-Hadoop      & Distributed computation framework \cite{website:Hadoop-Wiki}
-              \cite{website:Apache-Hadoop} \cite{shvachko2011apache}\\
+\texttt{Hadoop}    & Distributed computation framework
+                     \cite{website:Hadoop-Wiki} \cite{website:Apache-Hadoop}
+                     \cite{shvachko2011apache}\\
 \midrule{}
-BOINC       & Volunteer and grid computing project distributed
-              \cite{anderson2004boinc} \\
+\texttt{BOINC}     & Volunteer and grid computing project distributed
+                     \cite{anderson2004boinc} \\
 \midrule{}
-TORQUE      & Job scheduler for distributed computing
-              \cite{website:TORQUE-Resource-Manager} \\
+\texttt{TORQUE}    & Job scheduler for distributed computing
+                     \cite{website:TORQUE-Resource-Manager} \\
 \midrule{}
-GPUDirect   & \gls{gpu}-to-\gls{gpu} framework for parallel computing
-              \cite{website:YouTube} \\
+\texttt{GPUDirect} & \gls{gpu}-to-\gls{gpu} framework for parallel computing
+                     \cite{website:YouTube} \\
 \midrule{}
-MPI         & Message-passing system for parallel computations
-              \cite{website:MPI-Tutorial} \cite{website:mpi-4-python} \\
-\midrule
-PVM         & Distributed environment and message passing system
-              \cite{website:Computer-Science-and-Division} \\
+\texttt{MPI}       & Message-passing system for parallel computations
+                     \cite{website:MPI-Tutorial} \cite{website:mpi-4-python} \\
+\midrule{}
+\texttt{PVM}       & Distributed environment and message passing system
+                     \cite{website:Computer-Science-and-Division} \\
 \bottomrule{}
 \end{tabular}
 \caption{Summary of Current Approaches and Projects}
+\label{tab:relatedProjects}
 \end{table}
 
 \subsection{Hadoop}
@@ -54,24 +56,24 @@ characterized by dividing the application into many small fragments of work,
 each of which may be executed or re-executed on any node in the cluster. The
 worker node processes the smaller problem, and passes the answer back to its
 master node. The answers to the subproblems are then combined to form the
-output. Hadoop is popular model for distributed computations, however it is
+output. Hadoop is popular model for distributed computations, however, it is
 does not integrate with \gls{cuda}-enabled \glspl{gpu}.
 
 \subsection{BOINC}
 
-The Berkeley Open Infrastructure for Network Computing (BOINC) is an open
-source middleware system for volunteer and grid computing. The general public
-can contribute to today's computing power by donating their personal computer's
-disk space and some percentage of \gls{cpu} and \gls{gpu} processing. In other
-words, BOINC is software that can use the unused \gls{cpu} and \gls{gpu} cycles
-on a computer to do scientific computing \cite{anderson2004boinc}. The BOINC
-project allows for distributed computing using hundreds of millions of personal
-computers and game consoles belonging to the general public. This paradigm
-enables previously in-feasible research and scientific super-computing. The
-framework requires that individuals are connected to the internet and is
-supported by various operating systems, including Microsoft Windows, Mac OS X
-and various Unix-like systems. Although BOINC is another step in grid
-computing, it is does not seem to be relevant to our research.
+The \Gls{boinc} is an open source middleware system for volunteer and grid
+computing. The general public can contribute to today's computing power by
+donating their personal computer's disk space and some percentage of \gls{cpu}
+and \gls{gpu} processing. In other words, \gls{boinc} is software that can use
+the unused \gls{cpu} and \gls{gpu} cycles on a computer to do scientific
+computing \cite{anderson2004boinc}. The \gls{boinc} project allows for
+distributed computing using hundreds of millions of personal computers and game
+consoles belonging to the general public. This paradigm enables previously
+in-feasible research and scientific super-computing. The framework requires
+that individuals are connected to the Internet and is supported by various
+operating systems, including Microsoft Windows, Mac OS X and various Unix-like
+systems. Although \gls{boinc} is another step in grid computing, it is does
+not seem to be relevant to our research.
 
 \subsection{TORQUE}
 
@@ -80,21 +82,22 @@ execution. It enables users to control computational tasks over distributed
 compute nodes, as well as scheduling and administration on a cluster
 \cite{website:TORQUE-Resource-Manager}. \Gls{torque} has the ability to handle
 larger clusters with tens of thousands of nodes. It also can handle larger jobs
-that span hundreds of thousands of processors due to advanced GPGPU scheduling.
-However, \Gls{torque} does not allow for heterogeneous hardware in the cluster,
-making it inferior compared to \texttt{CUDA+MPI} framework.
+that span hundreds of thousands of processors due to advanced \gls{gpgpu}
+scheduling.  However, \Gls{torque} does not allow for heterogeneous hardware in
+the cluster, making it inferior compared to \texttt{CUDA+MPI} framework.
 
 \subsection{GPUDirect}
 
-Currently \gls{gpu} based clusters are becoming more popular. GPUDirect is a
-\gls{gpu} based clustering using infiniband, an architecture specification that
-defines a connection between processor nodes. GPUDirect allows for multiple
-GPUs to communicate with each other directly by giving GPUs ability to initiate
-and manage memory transfer \cite{website:YouTube}. Prior to GPUDirect,
-\gls{gpu}-to-\gls{gpu} communication involved \gls{cpu}. GPUDirect performance
-gain exceed \gls{cpu} solutions. Direct \gls{gpu}-to-\gls{gpu} communication
-is less computationally expensive since less messages will be sent and received
-via the host server. An issue with GPUDirect is that it requires a specific
+Currently \gls{gpu} based clusters are becoming more popular.
+\texttt{GPUDirect} is a \gls{gpu} based clustering using Infiniband, an
+architecture specification that defines a connection between processor nodes.
+\texttt{GPUDirect} allows for multiple \glspl{gpu} to communicate with each
+other directly by giving \glspl{gpu} ability to initiate and manage memory
+transfer \cite{website:YouTube}. Prior to GPUDirect, \gls{gpu}-to-\gls{gpu}
+communication involved the \gls{cpu}. \texttt{GPUDirect} performance gain
+exceed \gls{cpu} solutions. Direct \gls{gpu}-to-\gls{gpu} communication is less
+computationally expensive since less messages will be sent and received via the
+host server. An issue with \texttt{GPUDirect} is that it requires specific
 hardware. The proposed framework will serve as software solution to avoid
 hardware limitations.
 
@@ -106,7 +109,7 @@ hardware limitations.
 \cite{website:Message-Passing-Interface}. \gls{mpi} is a standardized and
 portable message-passing system that functions on a wide variety of parallel
 computers. Although the standard \gls{mpi} defines the syntax and semantics of
-a core of library routines in the C programming language, it is a
+a core of library routines in the \texttt{C} programming language, it is a
 language-independent communications protocol used to program parallel
 computers. \texttt{CUDA+MPI} builds upon this model due to the fact that
 \gls{mpi} is the dominant model used in high-performance computing
@@ -119,16 +122,17 @@ memory architecture and is optimized for the hardware on which it runs.
 designed to allow a network of heterogeneous Unix and/or Windows machines to be
 used as a single distributed parallel processor. Thus, large computational
 problems can be solved more cost effectively by using the aggregate power and
-memory of many computers. PVM enables users to exploit their existing computer
-hardware to solve much larger problems at less additional cost
-\cite{website:Computer-Science-and-Division}. PVM was a step towards modern
-trends in distributed processing and grid computing but has, since the
+memory of many computers. \gls{pvm} enables users to exploit their existing
+computer hardware to solve much larger problems at less additional cost
+\cite{website:Computer-Science-and-Division}. \gls{pvm} was a step towards
+modern trends in distributed processing and grid computing but has, since the
 mid-1990s, largely been supplanted by the much more successful \gls{mpi}
 standard for message passing on parallel machines.
 
-Proposed \texttt{CUDA+MPI} framework will take advantage of both \gls{mpi}
-(Message Passing Interface) and \gls{cuda} to perform computations on \gls{gpu}
-cards of computers participating in the on a cluster.  \texttt{CUDA+MPI}'s goal
-is to allow a collection of heterogeneous computers each containing a
-\gls{cuda}-capable \gls{gpu} to be used as a coherent and flexible concurrent
-computational resource.
+\subsection{CUDA+MPI}
+
+The proposed \texttt{CUDA+MPI} framework will take advantage of both \gls{mpi}
+and \gls{cuda} to perform computations on \gls{gpu} cards of computers
+participating in the cluster. \texttt{CUDA+MPI}'s goal is to allow a collection
+of heterogeneous computers each containing a \gls{cuda}-capable \gls{gpu} to be
+used as a coherent and flexible concurrent computational resource.

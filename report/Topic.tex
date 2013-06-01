@@ -13,9 +13,9 @@ Scientific applications require a large number of floating point number
 operations, \Glspl{cpu} are not sufficient to carry out such computationally
 intensive tasks. \glspl{cpu} are responsible for prioritization and execution
 of every instruction. Generally, a processor is described by the number of
-execution cores it owns. Modern Central Processing Unit have eight cores while
-\Glspl{gpu} have hundreds or more cores. More cores grant \glspl{gpu} the
-ability to perform more tasks at the same time.
+execution cores it owns. Modern \glspl{cpu} have eight cores while \Glspl{gpu}
+have hundreds or more cores. More cores grant \glspl{gpu} the ability to
+perform more tasks at the same time.
 
 In computer architecture there are two main ways of processing: serial and
 parallel. \Glspl{cpu} consist of a small number of cores (microprocessors) that
@@ -51,7 +51,7 @@ graphics cards in a cluster of workstations (across many computer nodes).
 
 We propose to create a framework for using both \Gls{mpi} and \gls{cuda} on a
 cluster of computers to dynamically and easily assign computationally intensive
-tasks to the machines participating in the cluster.  \Gls{mpi} is a popularly
+tasks to the machines participating in the cluster. \Gls{mpi} is a popularly
 used standardized interface for communication among a group of computers. It
 facilitates the passing of messages between the nodes in the cluster.
 

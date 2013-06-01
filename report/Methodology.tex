@@ -3,17 +3,18 @@
 
 Our framework will be developed using a number of tools and will also build
 upon a few already developed and mature software libraries. Overall, we plan to
-use the Python programming language, \gls{mpi} for cross process communication,
-and \gls{cuda} for graphics computing.
+use the \texttt{Python} programming language, \gls{mpi} for cross process
+communication, and \gls{cuda} for graphics computing.
 
 \subsection{Python}
 
-We will use Python programming language because of its ease of development and
-plethora of existing libraries such as \gls{mpi}. Python also adds some
-advantages when it comes to usability when needing more performance.  For
-example, if we discover a need for certain aspects of the project to be tuned
-or otherwise run faster, we can easily switch to C or C++ and write sections of
-the program in a (more performant) native language.
+We will use \texttt{Python} programming language because of its ease of
+development and plethora of existing libraries such as \gls{mpi}.
+\texttt{Python} also adds some advantages when it comes to usability when
+needing more performance.  For example, if we discover a need for certain
+aspects of the project to be tuned or otherwise run faster, we can easily
+switch to C or C++ and write sections of the program in a (more performant)
+native language.
 
 \subsection{MPI}
 
@@ -21,8 +22,8 @@ Currently our cluster consists of 16 computers provided to our research lab by
 the computer science department of Boise State University. We will use
 \gls{mpi} because it has established itself as the de-facto interface for cross
 process communication \cite{website:MPI-Tutorial}. To allow for interfacing
-with Python \cite{website:mpi-4-python}, we will use \texttt{mpi4py} because of
-its maturity and implementation completeness.
+with \texttt{Python} \cite{website:mpi-4-python}, we will use \texttt{mpi4py}
+because of its maturity and implementation completeness.
 
 \subsection{CUDA}
 
@@ -66,6 +67,6 @@ developed as time allows:
     \item Prime Number Searching
 \end{itemize}
 
-Every test program will be evaluated in three categories: CPU-only,
+Every test program will be evaluated in three categories: \gls{cpu}-only,
 \gls{cuda}-only, and \texttt{CUDA+MPI}. Using the framework to accelerate the
 computational tasks will provide us with key insights on its usability.
