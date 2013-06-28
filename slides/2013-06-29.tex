@@ -1,0 +1,165 @@
+\documentclass{beamer}
+\usetheme{Berlin}
+\usecolortheme[light,accent=blue]{solarized}
+\usepackage{booktabs}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{graphicx}
+\setbeamertemplate{headline}{}
+
+\title{OpenCUDA+MPI}
+\subtitle{A Framework for Heterogeneous GP-GPU Cluster Computing}
+\author[Ballou]{Kenny Ballou}
+\AtBeginSection[]
+{
+    \begin{frame}
+    \tableofcontents[currentsection]
+    \end{frame}
+}
+
+\begin{document}
+\begin{frame}[label=titleslide]
+\titlepage{}
+\end{frame}
+\begin{frame}
+\tableofcontents[subsectionstyle=hide]
+\end{frame}
+\section{Project Overview}
+\subsection{Terms and Definitions}
+\begin{frame}
+\frametitle{Introduction}
+\framesubtitle{Parallel and Distributed Computing}
+What is General Purpose Graphic Processing Unit (GP-GPU) Distributed Computing?
+\begin{itemize}
+\item{Parallel:}
+\begin{itemize}
+\item{Processing concurrently}
+\end{itemize}
+\item{Distributed:}
+\begin{itemize}
+\item{Processing over many computers}
+\end{itemize}
+\item{GPU Computing}
+\begin{itemize}
+\item{Highly Parallel Computing}
+\end{itemize}
+\item{(Highly) Parallel + Distributed}
+\begin{itemize}
+\item{Awesome}
+\item{``High-Performance-Computing''}
+\end{itemize}
+\end{itemize}
+\end{frame}
+%\subsection{Applications}
+%\begin{frame}
+%\frametitle{Applications of Supercomputing}
+%\begin{itemize}
+%\item{Solving (Large) Linear Systems}
+%\item{Fluid Dynamic Simulations}
+%\item{N-Body Simulations}
+%\item{Brute-Force Password/ Hash Collision Searching}
+%\item{Prime Number Factorization / Searching}
+%\item{Protein Folding}
+%\item{Image Analysis/ Manipulation}
+%\item{\dots{}}
+%\end{itemize}
+%\end{frame}
+\subsection{Problems}
+\begin{frame}
+\frametitle{Current Problems}
+\begin{itemize}
+\item{``Distributed Programming'' is expensive}
+\item{Specificity of Hardware}
+\item{Data}
+\begin{itemize}
+\item{Distribution}
+\item{Volume}
+\item{Network File System (NFS)}
+\end{itemize}
+\item{Fault Tolerance}
+\item{Optimizing Resources and Utilization}
+\end{itemize}
+\end{frame}
+\subsection{Plans and Goals}
+\begin{frame}
+\frametitle{Goals}
+\framesubtitle{OpenCUDA+MPI\@: A Framework \dots{}}
+\begin{enumerate}
+\item{Ease Programming Expense}
+\item{Enable / Allow Diversity in Computing Environment}
+\end{enumerate}
+\end{frame}
+\begin{frame}
+\frametitle{Plan}
+\begin{itemize}
+\item{Develop several different programs/ solutions for each program}
+\item{Profile (Analyze) solutions}
+\item{Develop framework; rework solutions to use new approach; profile again}
+\item{Add Cluster / Node Configuration and Scheduling Options}
+\item{Release as Free and Open-Source Software}
+\end{itemize}
+\end{frame}
+\section{Progress}
+\subsection{Node Configuration}
+\begin{frame}
+\frametitle{Salt Node Configuration}
+\begin{itemize}
+\item{Provisioning}
+\begin{itemize}
+\item{Software}
+\item{Configurations}
+\item{Daemons/ Services}
+\end{itemize}
+\item{Arbitrary Command Execution}
+\begin{itemize}
+\item{Bring up and down nodes}
+\item{Query load}
+\end{itemize}
+\item{Complete for all nodes except for ``master'' or head node}
+\end{itemize}
+\end{frame}
+\subsection{Sample/ Test Problem Development}
+\begin{frame}
+\frametitle{Sample/ Test Programs}
+\begin{itemize}
+\item{$ 10^{9} $ vector element-wise summation}
+\item{N-Body Simulation using particle particle, particle (adaptive) mesh (P3M)
+      algorithm}
+\end{itemize}
+\end{frame}
+\subsection{Results --- Vector Summation}
+\begin{frame}
+\frametitle{Timing Results --- Vector Summation}
+\begin{table}[htb]
+\centering{}
+\begin{tabular}{lcc}
+\toprule{}
+\textbf{Method} & \textbf{Time (s)} & \textbf{Total Time (s)} \\
+\midrule{}
+CPU Only & 13.7 & 254.13 \\
+\midrule{}
+CUDA (Single Node) & 13.83 & 4172 \\
+\midrule{}
+MPI + CUDA (7 nodes) & 10.51 & (average) 3177 \\
+\bottomrule{}
+\end{tabular}
+\caption{Computational Timing Comparison of $ 10^9 $ element wise vector
+summation}
+\end{table}
+\begin{itemize}
+\item{\textbf{LOTS} of I/O}
+\item{Bad Example}
+\end{itemize}
+\end{frame}
+\subsection{Results --- N-Body Simulation}
+\begin{frame}
+\frametitle{Timing Results --- N-Body Simulation}
+%\begin{table}[htb]
+%\centering{}
+%\begin{tabular}[lcc]
+%\end{tabular}
+%\end{table
+\end{frame}
+\againframe{titleslide}
+\end{document}
