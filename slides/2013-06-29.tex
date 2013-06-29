@@ -142,6 +142,8 @@ CPU Only & 13.7 & 254.13 \\
 CUDA (Single Node) & 13.83 & 4172 \\
 \midrule{}
 MPI + CUDA (7 nodes) & 10.51 & (average) 3177 \\
+\midrule{}
+MPI (7 nodes) & & (average) 226  \\
 \bottomrule{}
 \end{tabular}
 \caption{Computational Timing Comparison of $ 10^9 $ element wise vector
@@ -155,11 +157,45 @@ summation}
 \subsection{Results --- N-Body Simulation}
 \begin{frame}
 \frametitle{Timing Results --- N-Body Simulation}
-%\begin{table}[htb]
-%\centering{}
-%\begin{tabular}[lcc]
-%\end{tabular}
-%\end{table
+\framesubtitle{CPU Solutions}
+\begin{table}[htb]
+\centering{}
+\begin{tabular}{lccc}
+\toprule{}
+\textbf{Size} & \textbf{User (seconds)} &
+\textbf{Sys (seconds)} & \textbf{Real (seconds)} \\
+\midrule{}
+2001          & 10.65   & 0.00    & 12.03 \\
+\midrule{}
+20000         & 861.46  & 0.00    & 861.72 \\
+\midrule{}
+200000        & 109306  & 18.05   & 109364 \\
+\midrule{}
+2 million     & \dots{} & \dots{} & \dots{} \\
+\bottomrule{}
+\end{tabular}
+\end{table}
+\end{frame}
+\begin{frame}
+\frametitle{Timing Results --- N-Body Simulation}
+\framesubtitle{CUDA Solutions}
+\begin{table}[htb]
+\centering{}
+\begin{tabular}{lccc}
+\toprule{}
+\textbf{Size} & \textbf{User (seconds)} &
+\textbf{CPU (seconds)} & \textbf{Elapsed (seconds)} \\
+\midrule{}
+2001          & 0.68    & 0.48    & 01.25 \\
+\midrule{}
+20000         & 3.41    & 0.55    & 04.06 \\
+\midrule{}
+200000        & 31.06   & 1.11    & 32.28 \\
+\midrule{}
+2 million     & 347     & 11.93   & 361   \\
+\bottomrule{}
+\end{tabular}
+\end{table}
 \end{frame}
 \againframe{titleslide}
 \end{document}
