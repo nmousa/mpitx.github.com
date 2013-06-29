@@ -180,11 +180,10 @@ summation}
 \frametitle{Timing Results --- N-Body Simulation}
 \framesubtitle{CUDA Solutions}
 \begin{table}[htb]
-\centering{}
 \begin{tabular}{lccc}
 \toprule{}
-\textbf{Size} & \textbf{User (seconds)} &
-\textbf{CPU (seconds)} & \textbf{Elapsed (seconds)} \\
+\textbf{Size} & \textbf{User (s)} &
+\textbf{CPU (s)} & \textbf{Elapsed (s)} \\
 \midrule{}
 2001          & 0.68    & 0.48    & 01.25 \\
 \midrule{}
@@ -193,6 +192,8 @@ summation}
 200000        & 31.06   & 1.11    & 32.28 \\
 \midrule{}
 2 million     & 347     & 11.93   & 361   \\
+\midrule{}
+20 million    & 115.47  & 120.65  & 13927 \\
 \bottomrule{}
 \end{tabular}
 \end{table}
