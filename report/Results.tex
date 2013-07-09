@@ -1,0 +1,128 @@
+% vim: syntax=tex:
+\section{Results}
+
+\subsection{Vector Summation}
+
+Our first developed test program was a $ 10^9 $ element wise vector summation
+problem. This is a simple and, as we will see, a bad example of using a cluster
+to speed up the computation of a problem. Although we did see a increase in
+performance, the cost of \gls{io} far out weighs the benefit. Specifically, to
+do the computation on one machine (one \gls{cpu}), it took a \gls{wall_time} of
+$254$ seconds (about $4$ minutes) and a \gls{cpu_time} of $13.7$ seconds.
+Further, to do the computation using a single \gls{gpu} took about $4172$
+seconds (\gls{wall_time}) or about $70$ minutes, $13.83$ seconds
+(\gls{cpu_time}) while the computing the summation of the cluster took about
+$3177$ seconds (\gls{wall_time}) or about $50$ minutes, $10.51$ seconds
+(\gls{cpu_time}). Our \gls{cpu} only implementation took the least amount of
+elapsed time, it took the second longest \gls{cpu_time}. Our \gls{cuda} only
+implementation took the longest in both \gls{wall_time} and \gls{cpu_time} and
+our cluster implementation was shortest \gls{cpu_time} but seconds longest
+elapsed time. The benefit of saving an upwards of $3.3$ seconds is not worth
+the extra incurred cost of $2923$ seconds. Not so surprisingly though, running
+the vector summation problem over the cluster \emph{without} using \gls{cuda}
+does increase the overall elapsed time of the problem; namely, it took $226$
+seconds \gls{wall_time} (currently the correct \gls{cpu_time} is unable to be
+collected). Further, increasing the number of nodes part of the program's pool,
+decreases the \gls{wall_time} for each node.
+
+\begin{table}[htb]
+\centering{}
+\begin{tabular}{lcc}
+\toprule{}
+\textbf{Method} & \textbf{Time (s)} & \textbf{Total Time (s)} \\
+\midrule{}
+CPU Only & 13.7 & 254.13 \\
+\midrule{}
+CUDA (Single \Gls{node}) & 13.83 & 4172 \\
+\midrule{}
+MPI + CUDA (7 \glspl{node}) & 10.51 & (average) 3177 \\
+\midrule{}
+MPI (7 \glspl{node}) & & (average) 226  \\
+\midrule{}
+MPI (16 \glspl{slot}) & & (average) 149 \\
+\bottomrule{}
+\end{tabular}
+\caption{Computational Timing Comparison of $ 10^9 $ element wise vector
+summation}
+\end{table}
+
+\subsection{N-Body Problem}
+
+We have several sizes of the \texttt{N-Body} problem that we tested with:
+$2,001$ particles, $20,000$ particles, $200,000$ particles, $2,000,000$, and
+$20,000,000$ particles.\\
+
+The computational times are for only one time step. The method for computing
+the gravitational potential is an adaptation of the \gls{p3m} method. The
+benefit of using this method is we are able to nicely distribute the problem
+over the \gls{cluster} and / or over a \gls{gpu} (because of memory
+limitations) while maintaining a respectable accuracy for close body
+interactions. Further, if a grid contains more bodies than a specified
+threshold (in our case $200,000$), we can further sub-divide the grid to
+improve performance and maintain accuracy still.\\
+
+There are other algorithms for computing \texttt{N-Body} problems on the
+\gls{cpu} that are quite efficient, notably, the Barnes-Hutt Tree algorithm;
+however, using it would distort and confound the comparisons between \gls{cpu},
+\gls{gpu}, and \gls{cluster} implementations; foregoing to mention the
+complexities of implementing such an algorithm on \glspl{gpu} and over a
+\gls{cluster}.
+
+\subsubsection{N-Body --- CPU}
+
+In \gls{cpu} tests, we were only able to complete several of the problem sizes;
+the larger sizes are infeasible. Notably, the smaller sizes were computed in a
+relatively respectable amount of time. While the bigger sizes were time
+consuming, still being computed or not even attempted.
+
+\begin{table}[htb]
+\centering{}
+\begin{tabular}{lccc}
+\toprule{}
+\textbf{Size} & \textbf{User (seconds)} &
+\textbf{Sys (seconds)} & \textbf{Real (seconds)} \\
+\midrule{}
+2001          & 10.65   & 0.00    & 12.03 \\
+\midrule{}
+20000         & 861.46  & 0.00    & 861.72 \\
+\midrule{}
+200000        & 109306  & 18.05   & 109364 \\
+\midrule{}
+2 million     & \dots{} & \dots{} & \dots{} \\
+\midrule{}
+20 million    & N/A     & N/A     & N/A \\
+\bottomrule{}
+\end{tabular}
+\caption{\gls{cpu} N-Body simulation using particle-particle method}
+\label{tab:cpu_nbody}
+\end{table}
+
+\subsubsection{N-Body --- GPU}
+
+As noted above, the \gls{gpu} (\gls{cuda}) implementation uses the same
+computational method (\gls{p3m}). Using the \gls{gpu}, we were able to compute
+the $ 20,000,000 $ size problem and may be able to compute larger sets within a
+\emph{reasonable} amount of time.
+
+\begin{table}[htb]
+\centering{}
+\begin{tabular}{lccc}
+\toprule{}
+\textbf{Size} & \textbf{User (seconds)} &
+\textbf{Sys (seconds)} & \textbf{Real (seconds)} \\
+\midrule{}
+2001          & 0.68    & 0.48    & 01.25 \\
+\midrule{}
+20000         & 3.41    & 0.55    & 04.06 \\
+\midrule{}
+200000        & 31.06   & 1.11    & 32.28 \\
+\midrule{}
+2 million     & 347     & 11.93   & 361   \\
+\midrule{}
+20 million    & 115.47  & 120.65  & 13927 \\
+\bottomrule{}
+\end{tabular}
+\caption{Single \gls{gpu} (\gls{cuda}) N-Body simulation using \gls{p3m}
+method}
+\label{tab:gpu_nbody}
+\end{table}
