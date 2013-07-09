@@ -5,6 +5,53 @@
 \newacronym{cuda}{CUDA}{Compute Unified Device Architecture}
 \newacronym{gpu}{GPU}{Graphics Processing Unit}
 \newacronym{gpgpu}{GP-GPU}{General Purpose \Gls{gpu}}
+\newacronym{io}{I/O}{Input/ Output}
 \newacronym{mpi}{MPI}{Message Passing Interface}
+\newacronym{p3m}{P3M}{Particle-Particle, Particle-Mesh}
 \newacronym{pvm}{PVM}{Parallel Virtual Machine}
 \newacronym{torque}{TORQUE}{Terascale Open-Source Resource and QUEue Manager}
+\newglossaryentry{cluster}
+{
+    name=cluster,
+    description={A collection of computers networked together, typically with
+    the goal of combining computational power}
+}
+\newglossaryentry{cpu_time}
+{
+    name=\gls{cpu} time,
+    description={time (typically in seconds) spent executing the process}
+}
+\newglossaryentry{node}
+{
+    name=node,
+    description={a computer, member of a \gls{cluster}}
+}
+\newglossaryentry{real_time}
+{
+    name=real time,
+    description={Elapsed time excuting; synonomous of \gls{wall_time}}
+}
+\newglossaryentry{slot}
+{
+    name=slot,
+    description={process space on a \gls{node}, typically equal to the number
+    of logical \gls{cpu} cores on the node}
+}
+\newglossaryentry{sys_time}
+{
+    name=system time,
+    description={similar to \gls{sys_time}, the amount of time the ``system''
+    was executing}
+}
+\newglossaryentry{user_time}
+{
+    name=user time,
+    description={similar to \gls{cpu_time}, the amount of time ``user'' code
+    was executing}
+}
+\newglossaryentry{wall_time}
+{
+    name=wall time,
+    description={all elapsed time (typically in seconds) that passes from start
+    to finish of a program}
+}
