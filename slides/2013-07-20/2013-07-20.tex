@@ -1,0 +1,243 @@
+\documentclass{beamer}
+\usetheme{Berlin}
+\usecolortheme[light,accent=blue]{solarized}
+\usepackage{booktabs}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{graphicx}
+\setbeamertemplate{headline}{}
+
+\title{OpenCUDA+MPI}
+\subtitle{A Framework for Heterogeneous GP-GPU Cluster Computing}
+\author[Ballou]{Kenny Ballou}
+\AtBeginSection[]
+{
+    \begin{frame}
+    \tableofcontents[currentsection]
+    \end{frame}
+}
+
+\begin{document}
+\begin{frame}[label=titleslide]
+\titlepage{}
+\end{frame}
+\begin{frame}
+\tableofcontents[subsectionstyle=hide]
+\end{frame}
+\section{Project Overview}
+\subsection{Terms and Definitions}
+\begin{frame}
+\frametitle{Introduction}
+\framesubtitle{Parallel and Distributed Computing}
+What is Distributed General Purpose Graphics Computing?
+\begin{itemize}
+\item{Parallel:}
+\begin{itemize}
+\item{Processing concurrently}
+\end{itemize}
+\item{Distributed:}
+\begin{itemize}
+\item{Processing over many computers}
+\end{itemize}
+\item{GPU Computing}
+\begin{itemize}
+\item{Highly Parallel Computing}
+\end{itemize}
+\item{(Highly) Parallel + Distributed}
+\begin{itemize}
+\item{Awesome}
+\item{``High-Performance-Computing''}
+\end{itemize}
+\end{itemize}
+\end{frame}
+\section{Progress}
+\subsection{Node Power}
+\begin{frame}
+\frametitle{Node Power}
+\framesubtitle{Requirements and Distribution}
+Now able to run all nodes
+\begin{itemize}
+\item{300 Watts per Node (Peak)}
+\item{\~{} 120 Volts at 20 Amps (Single Circuit)}
+\item{\~{} 48 Kilowatts}
+\end{itemize}
+\end{frame}
+\subsection{Node Configuration}
+\begin{frame}
+\frametitle{Salt Node Configuration}
+\begin{itemize}
+\item{Provisioning}
+\begin{itemize}
+\item{Software}
+\item{Configurations}
+\item{Daemons/ Services}
+\end{itemize}
+\item{Arbitrary Command Execution}
+\begin{itemize}
+\item{Bring up and down nodes}
+\item{Query load}
+\end{itemize}
+\item{Complete for all nodes except for ``master'' or head node}
+\end{itemize}
+\end{frame}
+\subsection{Sample/ Test Problem Development}
+\begin{frame}
+\frametitle{Sample/ Test Programs}
+\begin{itemize}
+\item{$ 10^{9} $ vector element-wise summation}
+\item{N-Body Simulation using particle particle, particle (adaptive) mesh (P3M)
+      algorithm}
+\end{itemize}
+\end{frame}
+%\subsection{Results --- Vector Summation}
+%\begin{frame}
+%\frametitle{Timing Results --- Vector Summation}
+%\begin{table}[htb]
+%\centering{}
+%\begin{tabular}{lcc}
+%\toprule{}
+%\textbf{Method} & \textbf{Time (s)} & \textbf{Total Time (s)} \\
+%\midrule{}
+%CPU Only & 13.7 & 254.13 \\
+%\midrule{}
+%CUDA (Single Node) & 13.83 & 4172 \\
+%\midrule{}
+%MPI + CUDA (7 nodes) & 10.51 & (average) 3177 \\
+%\midrule{}
+%MPI (7 nodes) & & (average) 226  \\
+%\bottomrule{}
+%\end{tabular}
+%\caption{Computational Timing Comparison of $ 10^9 $ element wise vector
+%summation}
+%\end{table}
+%\begin{itemize}
+%\item{\textbf{LOTS} of I/O}
+%\item{Bad Example}
+%\end{itemize}
+%\end{frame}
+\subsection{Results --- N-Body Simulation}
+\begin{frame}
+\frametitle{Refactoring}
+\lstinputlisting[firstline=8,lastline=13]{code}
+\end{frame}
+\begin{frame}
+\frametitle{Refactoring --- Result}
+\lstinputlisting[firstline=15,lastline=24]{code}
+\end{frame}
+\begin{frame}
+\frametitle{Timing Results --- N-Body Simulation}
+\framesubtitle{2k Times}
+\begin{table}[htb]
+\centering{}
+\begin{tabular}{lccc}
+\toprule{}
+\textbf{Method} & \textbf{User (seconds)} &
+\textbf{Sys (seconds)} & \textbf{Real (seconds)} \\
+\midrule{}
+CPU      & 28.62 & 0.01 & 29.81 \\
+\midrule{}
+GPU      & 0.45 & 0.56 &  2.31 \\
+\midrule{}
+CUDA+MPI & N/A & N/A & N/A \\
+\bottomrule{}
+\end{tabular}
+\caption{N-Body 2k Time Comparisons}
+\end{table}
+\end{frame}
+\begin{frame}
+\frametitle{Timing Results --- N-Body Simulation}
+\framesubtitle{20k Times}
+\begin{table}[htb]
+\begin{tabular}{lccc}
+\toprule{}
+\textbf{Method} & \textbf{User (seconds)} &
+\textbf{Sys (seconds)} & \textbf{Real (seconds)} \\
+\midrule{}
+CPU      & 2368.39 & 1.30 & 2377.88 \\
+\midrule{}
+GPU      & 18.92 & 2.25 & 22.95 \\
+\midrule{}
+CUDA+MPI & 1.19 & 1.01 & 2.94 \\
+\bottomrule{}
+\end{tabular}
+\caption{N-Body 20k Time Comparisons}
+\end{table}
+\end{frame}
+\begin{frame}
+\frametitle{Timing Results --- N-Body Simulation}
+\framesubtitle{200k Times}
+\begin{table}[htb]
+\begin{tabular}{lccc}
+\toprule{}
+\textbf{Method} & \textbf{User (seconds)} &
+\textbf{Sys (seconds)} & \textbf{Real (seconds)} \\
+\midrule{}
+CPU      & \dots{} & \dots{} & \dots{} \\
+\midrule{}
+GPU      & 39.14 & 4.68 & 46.57 \\
+\midrule{}
+CUDA+MPI & 6.43 & 5.01 & 13.65 \\
+\bottomrule{}
+\end{tabular}
+\caption{N-Body 200k Time Comparisons}
+\end{table}
+\end{frame}
+\begin{frame}
+\frametitle{Timing Results --- N-Body Simulation}
+\framesubtitle{2m Times}
+\begin{table}[htb]
+\begin{tabular}{lccc}
+\toprule{}
+\textbf{Method} & \textbf{User (seconds)} &
+\textbf{Sys (seconds)} & \textbf{Real (seconds)} \\
+\midrule{}
+CPU      & \dots{}\dots{} & \dots{}\dots{} & \dots{}\dots{} \\
+\midrule{}
+GPU      & 158.23 & 17.88 & 184.64 \\
+\midrule{}
+CUDA+MPI & 68.50 & 44.93 & 127.04 \\
+\bottomrule{}
+\end{tabular}
+\caption{N-Body 2m Time Comparisons}
+\end{table}
+\end{frame}
+\begin{frame}
+\frametitle{Timing Results --- N-Body Simulation}
+\framesubtitle{20m Times}
+\begin{table}[htb]
+\begin{tabular}{lccc}
+\toprule{}
+\textbf{Method} & \textbf{User (seconds)} &
+\textbf{Sys (seconds)} & \textbf{Real (seconds)} \\
+\midrule{}
+CPU      & Nope & Nope & Nope \\
+\midrule{}
+GPU      & 1159.89 & 147.24 & 1359.77 \\
+\midrule{}
+CUDA+MPI & 623.41 & 156.82 & 901.62 \\
+\bottomrule{}
+\end{tabular}
+\caption{N-Body 20m Time Comparisons}
+\end{table}
+\end{frame}
+%\begin{frame}
+%\frametitle{Timing Results --- N-Body Simulation}
+%\framesubtitle{200m Times}
+%\begin{table}[htb]
+%\begin{tabular}{lccc}
+%\toprule{}
+%\textbf{Method} & \textbf{User (seconds)} &
+%\textbf{Sys (seconds)} & \textbf{Real (seconds)} \\
+%\midrule{}
+%CPU      & Nope & Nope & Nope \\
+%\midrule{}
+%GPU      & \dots{} & \dots{} & \dots{} \\
+%\midrule{}
+%CUDA+MPI & & & \\
+%\bottomrule{}
+%\end{tabular}
+%\end{table}
+%\end{frame}
+\againframe{titleslide}
+\end{document}

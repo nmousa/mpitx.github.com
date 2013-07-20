@@ -1,0 +1,24 @@
+def create_mesh(radius, rx, ry):
+        mesh_64 = mesh.create_grids(16, radius)
+        grid_spread = list(list(x) for x in
+                            (mesh.get_particles_in_grid((rx, ry), y)
+                            for y in mesh_64))
+        return (mesh_64, grid_spread,)
+
+def get_particles_in_grid(r, grid):
+    def contains(r, d):
+        return d[0] <= r[0] < d[0] + d[2] and \
+               d[1] <= r[1] < d[1] + d[2]
+    return (i for i in range(len(r[0]))
+            if contains((r[0][i], r[1][i]), grid))
+
+def get_particles_in_grid(r, grid):
+    x = np.intersect1d(
+            np.where(grid[0] <= r[0])[0],
+            np.where(r[0] < grid[0] + grid[2])[0],
+            assume_unique=True)
+    y = np.intersect1d(
+            np.where(grid[1] <= r[1])[0],
+            np.where(r[1] < grid[1] + grid[2])[0],
+            assume_unique=True)
+    return np.intersect1d(x, y, assume_unique=True)
