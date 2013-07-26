@@ -1,0 +1,82 @@
+2k_chart:
+    type: bar
+    title: 2k N-Body P3M Real Time Comparison
+    data: Real
+    keys:
+        - 2k_cpu_p3m
+        - 2k_gpu_p3m
+    xticks:
+        - CPU
+        - GPU
+    std: True
+    xlabel: Methods
+    ylabel: Elapsed Time (seconds)
+20k_chart:
+    type: bar
+    title: 20k N-Body P3M Real Time Comparison
+    data: Real
+    keys:
+        - 20k_cpu_p3m
+        - 20k_gpu_p3m
+        - 20k_cudampi
+    xticks:
+        - CPU
+        - GPU
+        - CUDAMPI
+    std: True
+    xlabel: Methods
+    ylabel: Elapsed Time (seconds)
+200k_chart:
+    type: bar
+    title: 200k N-Body P3M Real Time Comparison
+    data: Real
+    keys:
+        - 200k_cpu_p3m
+        - 200k_gpu_p3m
+        - 200k_cudampi
+    xticks:
+        - CPU
+        - GPU
+        - CUDAMPI
+    std: False
+    xlabel: Methods
+    ylabel: Elapsed Time (seconds)
+200k_chart_no_cpu:
+    type: bar
+    title: 200k N-Body P3M Real Time Comparison (without CPU)
+    data: Real
+    keys:
+        - 200k_gpu_p3m
+        - 200k_cudampi
+    xticks:
+        - GPU
+        - CUDAMPI
+    std: True
+    xlabel: Methods
+    ylabel: Elapsed Time (seconds)
+2m_chart:
+    type: bar
+    title: 2m N-Body P3M Real Time Comparison
+    data: Real
+    keys:
+        - 2m_gpu_p3m
+        - 2m_cudampi
+    xticks:
+        - GPU
+        - CUDAMPI
+    std: True
+    xlabel: Methods
+    ylabel: Elapsed Time (seconds)
+20m_chart:
+    type: bar
+    title: 20m N-Body P3M Real Time Comparison
+    data: Real
+    keys:
+        - 20m_gpu_p3m
+        - 20m_cudampi
+    xticks:
+        - GPU
+        - CUDAMPI
+    std: True
+    xlabel: Methods
+    ylabel: Elapsed Time (seconds)
