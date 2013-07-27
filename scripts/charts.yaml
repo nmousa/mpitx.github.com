@@ -9,6 +9,7 @@
         - CPU
         - GPU
     std: True
+    filename: 2k_bar_chart.svg
     xlabel: Methods
     ylabel: Elapsed Time (seconds)
 20k_chart:
@@ -24,6 +25,7 @@
         - GPU
         - CUDAMPI
     std: True
+    filename: 20k_bar_chart.svg
     xlabel: Methods
     ylabel: Elapsed Time (seconds)
 200k_chart:
@@ -39,6 +41,7 @@
         - GPU
         - CUDAMPI
     std: False
+    filename: 200k_bar_chart.svg
     xlabel: Methods
     ylabel: Elapsed Time (seconds)
 200k_chart_no_cpu:
@@ -52,6 +55,7 @@
         - GPU
         - CUDAMPI
     std: True
+    filename: 200k_bar_chart_no_cpu.svg
     xlabel: Methods
     ylabel: Elapsed Time (seconds)
 2m_chart:
@@ -65,6 +69,7 @@
         - GPU
         - CUDAMPI
     std: True
+    filename: 2m_bar_chart.svg
     xlabel: Methods
     ylabel: Elapsed Time (seconds)
 20m_chart:
@@ -78,5 +83,6 @@
         - GPU
         - CUDAMPI
     std: True
+    filename: 20m_bar_chart.svg
     xlabel: Methods
     ylabel: Elapsed Time (seconds)
