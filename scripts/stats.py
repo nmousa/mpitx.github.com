@@ -96,7 +96,10 @@ def bar_chart(title, x, y, err, filename=None, xlabel=None, ylabel=None):
     ax.set_xlabel(xlabel)
     ax.set_ylabel(ylabel)
     ax.set_xticklabels(x)
-    plt.savefig(filename, dpi=800, format='svg')
+    if filename:
+        plt.savefig(filename, dpi=800, format='svg')
+    else:
+        plt.show()
 
 def select(db, x, key, i):
     return list(db[k][key][i] for k in x)
