@@ -108,11 +108,12 @@ def generate_charts(results_fname, barcharts_fname):
             return yaml.load(f)
     def create_bar(chart):
         x = chart['keys']
+        xlabels = chart['xticks']
         y = select(db, x, chart['data'], 0)
         err = list(0 for i in range(len(y)))
         if chart['std']:
             err = select(db, x, chart['data'], 3)
-        bar_chart(chart['title'], x, y, err,
+        bar_chart(chart['title'], xlabels, y, err,
                   filename=chart.get('filename'),
                   xlabel=chart.get('xlabel', ''),
                   ylabel=chart.get('ylabel', ''))
