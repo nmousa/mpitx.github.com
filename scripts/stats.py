@@ -90,7 +90,7 @@ def bar_chart(title, x, y, err, filename=None, xlabel=None, ylabel=None):
     ax = fig.add_subplot(111)
     width = 0.35
     ind = np.arange(len(y))
-    ax.bar(ind + width / 2, y, facecolor='#777777', align='center', yerr=err)
+    ax.bar(ind + width / 2, y, width, facecolor='#777777', yerr=err)
     ax.set_xticks(ind + width)
     ax.set_title(title)
     ax.set_xlabel(xlabel)
