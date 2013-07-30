@@ -85,7 +85,8 @@ def printout_stats(stats):
         Std:       %f
         Var:       %f""" % d)
 
-def bar_chart(title, x, y, err, filename=None, xlabel=None, ylabel=None):
+def bar_chart(title, x, y, err, filename=None, fmt=None,
+              xlabel=None, ylabel=None):
     fig = plt.figure()
     ax = fig.add_subplot(111)
     width = 0.35
@@ -96,8 +97,8 @@ def bar_chart(title, x, y, err, filename=None, xlabel=None, ylabel=None):
     ax.set_xlabel(xlabel)
     ax.set_ylabel(ylabel)
     ax.set_xticklabels(x)
-    if filename:
-        plt.savefig(filename, dpi=800, format='svg')
+    if filename and fmt:
+        plt.savefig(filename, format=fmt)
     else:
         plt.show()
 
@@ -118,6 +119,7 @@ def generate_charts(results_fname, barcharts_fname):
             err = select(db, x, chart['data'], 3)
         bar_chart(chart['title'], xlabels, y, err,
                   filename=chart.get('filename'),
+                  fmt=chart.get('format'),
                   xlabel=chart.get('xlabel', ''),
                   ylabel=chart.get('ylabel', ''))
     charts = loadyaml(barcharts_fname)
