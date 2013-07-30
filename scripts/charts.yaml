@@ -11,7 +11,6 @@
     std: True
     filename: 2k_bar_chart.png
     format: png
-    xlabel: Methods
     ylabel: Elapsed Time (seconds)
 20k_chart:
     type: bar
@@ -28,7 +27,6 @@
     std: True
     filename: 20k_bar_chart.png
     format: png
-    xlabel: Methods
     ylabel: Elapsed Time (seconds)
 200k_chart:
     type: bar
@@ -45,7 +43,6 @@
     std: False
     filename: 200k_bar_chart.png
     format: png
-    xlabel: Methods
     ylabel: Elapsed Time (seconds)
 200k_chart_no_cpu:
     type: bar
@@ -60,7 +57,6 @@
     std: True
     filename: 200k_bar_chart_no_cpu.png
     format: png
-    xlabel: Methods
     ylabel: Elapsed Time (seconds)
 2m_chart:
     type: bar
@@ -75,7 +71,6 @@
     std: True
     filename: 2m_bar_chart.png
     format: png
-    xlabel: Methods
     ylabel: Elapsed Time (seconds)
 20m_chart:
     type: bar
