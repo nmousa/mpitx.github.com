@@ -1,0 +1,49 @@
+\begin{block}{\Large Results}
+We were able to show that distributing work over a cluster can
+significanly decrease the amount of time required for a problem. For example,
+processing the N-Body problem for 200 thousand bodies on a single CPU required
+$114349$ seconds (about 31 hours), as compared to a single GPU which required
+$52$ seconds and distributing over 16 GPU's only took $21$ seconds. For more
+comparisons, please see the table below. [Currently, a comparison between the
+distributed code with and without the framework is not available.]\hfill{}\\{}
+
+Although biased, it was interesting to notice the development time difference
+between writing the distributed code without the framework as compared to with
+the framework. Namely, without the framework, it required several weeks,
+whereas, with the framework, it required less than a week.
+\end{block}
+%\begin{block}{}
+%\begin{table}[h]
+%\begin{tabular}{llcc}
+%\toprule{}
+%\textbf{Size} & \textbf{Method} & \textbf{Elapsed (seconds)} & $\sigma{}$ \\
+%\midrule{}
+%2000            & CPU          & 30.76    & 0.72   \\
+%\midrule{}
+                %& GPU          & 14.14    & 0.76   \\
+%\midrule
+                %& CUDA+MPI     & 819.67   & 807.29 \\
+%\midrule
+%20,000          & CPU          & 2393     & 10.30  \\
+%\midrule{}
+                %& GPU          & 26.82    & 0.062  \\
+%\midrule{}
+                %& CUDA+MPI     & 12.50    & 11.34  \\
+%\midrule{}
+%200,000         & CPU          & 114349   & 411.44 \\
+%\midrule{}
+                %& GPU          & 52.86    & 0.08   \\
+%\midrule{}
+                %& CUDA+MPI     & 21.34    & 19.61  \\
+%\midrule{}
+%2,000,000       & GPU          & 217.60   & 0.82   \\
+%\midrule{}
+                %& CUDA+MPI     & 97.76    & 20.78  \\
+%\midrule{}
+%20,000,000      & GPU          & 1509.98  & 2.70   \\
+%\midrule{}
+                %& CUDA+MPI     & 950.05   & 47.81  \\
+%\bottomrule{}
+%\end{tabular}
+%\end{table}
+%\end{block}
