@@ -85,5 +85,39 @@
     std: True
     filename: 20m_bar_chart.png
     format: png
+    ylabel: Elapsed Time (seconds)
+all_chart:
+    type: bar
+    title: N-Body P3M Real Time Comparision
+    data: Real
+    keys:
+        - 2k_cpu_p3m
+        - 2k_gpu_p3m
+        - 20k_cpu_p3m
+        - 20k_gpu_p3m
+        - 20k_cudampi
+        - 200k_cpu_p3m
+        - 200k_gpu_p3m
+        - 200k_cudampi
+        - 2m_gpu_p3m
+        - 2m_cudampi
+        - 20m_gpu_p3m
+        - 20m_cudampi
+    xticks:
+        - CPU
+        - GPU
+        - CPU
+        - GPU
+        - CUDAMPI
+        - CPU
+        - GPU
+        - CUDAMPI
+        - GPU
+        - CUDAMPI
+        - GPU
+        - CUDAMPI
+    std: True
+    filename: all_bar_chart.png
+    format: png
     xlabel: Methods
     ylabel: Elapsed Time (seconds)
