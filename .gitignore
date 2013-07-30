@@ -1,4 +1,4 @@
-slides/**/*.pdf
+tex/**/*.pdf
 report/*.pdf
 **/*.log
 **/*.aux
