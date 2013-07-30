@@ -87,6 +87,11 @@ def printout_stats(stats):
 
 def bar_chart(title, x, y, err, filename=None, fmt=None,
               xlabel=None, ylabel=None):
+    def autolabel(rects):
+        for rect in rects:
+            height = rect.get_height()
+            ax.text(rect.get_x()+rect.get_width()/2., 1.05*height,
+                    '%d'%int(height), ha='center', va='bottom')
     fig = plt.figure()
     ax = fig.add_subplot(111)
     width = 0.35
@@ -97,6 +102,7 @@ def bar_chart(title, x, y, err, filename=None, fmt=None,
     ax.set_xlabel(xlabel)
     ax.set_ylabel(ylabel)
     ax.set_xticklabels(x)
+    autolabel(real_times)
     if filename and fmt:
         plt.savefig(filename, format=fmt)
     else:
