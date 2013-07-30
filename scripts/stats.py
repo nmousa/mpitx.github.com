@@ -96,15 +96,17 @@ def bar_chart(title, x, y, err, filename=None, fmt=None,
     ax = fig.add_subplot(111)
     width = 0.35
     ind = np.arange(len(y))
-    ax.bar(ind + width / 2, y, width, facecolor='#777777', yerr=err)
-    ax.set_xticks(ind + width)
-    ax.set_title(title)
+    real_times = ax.bar(0.1 + ind + width / 2, y, width,
+                        facecolor='#268bd2', ecolor='#Dc322f',
+                        yerr=err, bottom=0, log=True)
+    ax.set_xticks(0.1 + ind + width)
+    ax.set_title(title, fontsize=18)
     ax.set_xlabel(xlabel)
     ax.set_ylabel(ylabel)
     ax.set_xticklabels(x)
     autolabel(real_times)
     if filename and fmt:
-        plt.savefig(filename, format=fmt)
+        plt.savefig(filename, format=fmt, facecolor='#fdf6e3')
     else:
         plt.show()
 
