@@ -74,8 +74,6 @@ performance increase can be even greater.  However, developing the codes
 required for this can be very expensive and difficult to get correct.
 \texttt{OpenCUDA+MPI} attempts to solve these issues.
 
-\section{Body}
-
 \subsection{Project Objectives}
 
 We have several goals we want to accomplish in creating \texttt{OpenCUDA+MPI}.
@@ -83,7 +81,7 @@ Namely, the framework itself, a collection of related administration tools and
 configurations, and once a stable version of the framework is finished, it is
 released as Free and Open-Source software.
 
-\subsection{Methodology}
+\section{Methodology}
 
 To fully understand the purpose of creating a framework, we first set out to
 attempt developing parallel code \emph{without} our proposed framework.
@@ -96,7 +94,7 @@ each for several different problem sizes.
 The N-Body problem was chosen as a test problem because it is \emph{not} an
 embarrassingly parallel problem and, as such, requires inter-communication.
 
-\subsection{Results}
+\section{Results}
 
 We were able to show that distributing work over a cluster can significantly
 decrease the amount of time required for a problem. For example, processing the
