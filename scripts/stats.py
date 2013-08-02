@@ -85,8 +85,7 @@ def printout_stats(stats):
         Std:       %f
         Var:       %f""" % d)
 
-def bar_chart(title, x, y, err, filename=None, fmt=None,
-              xlabel=None, ylabel=None):
+def bar_chart(x, y, err, **kwargs):
     def autolabel(rects):
         for rect in rects:
             height = rect.get_height()
@@ -94,19 +93,27 @@ def bar_chart(title, x, y, err, filename=None, fmt=None,
                     '%d'%int(height), ha='center', va='bottom')
     fig = plt.figure()
     ax = fig.add_subplot(111)
-    width = 0.35
+    width = kwargs.get('width', 0.35)
     ind = np.arange(len(y))
-    real_times = ax.bar(0.1 + ind + width / 2, y, width,
-                        facecolor='#268bd2', ecolor='#Dc322f',
-                        yerr=err, bottom=0, log=True)
+    real_times = ax.bar(0.1 + ind + width / 2,
+                        y,
+                        width,
+                        facecolor=kwargs.get('facecolor', '#268bd2'),
+                        ecolor=kwargs.get('ecolor', '#Dc322f'),
+                        yerr=err,
+                        bottom=0, log=kwargs.get('logscale', False))
     ax.set_xticks(0.1 + ind + width)
-    ax.set_title(title, fontsize=18)
-    ax.set_xlabel(xlabel)
-    ax.set_ylabel(ylabel)
+    ax.set_title(kwargs.get('title'), fontsize=kwargs.get('fontsize', 18))
+    ax.set_xlabel(kwargs.get('xlabel'))
+    ax.set_ylabel(kwargs.get('ylabel'))
     ax.set_xticklabels(x)
     autolabel(real_times)
+    filename = kwargs.get('filename')
+    fmt = kwargs.get('format')
     if filename and fmt:
-        plt.savefig(filename, format=fmt, facecolor='#fdf6e3')
+        plt.savefig(filename,
+                    format=fmt,
+                    facecolor=kwargs.get('bordercolor', '#fdf6e3'))
     else:
         plt.show()
 
@@ -120,16 +127,11 @@ def generate_charts(results_fname, barcharts_fname):
             return yaml.load(f)
     def create_bar(chart):
         x = chart['keys']
-        xlabels = chart['xticks']
         y = select(db, x, chart['data'], 0)
         err = list(0 for i in range(len(y)))
         if chart['std']:
             err = select(db, x, chart['data'], 3)
-        bar_chart(chart['title'], xlabels, y, err,
-                  filename=chart.get('filename'),
-                  fmt=chart.get('format'),
-                  xlabel=chart.get('xlabel', ''),
-                  ylabel=chart.get('ylabel', ''))
+        bar_chart(x, y, err, **chart)
     charts = loadyaml(barcharts_fname)
     for k,c in charts.items():
         if c['type'] == 'bar':
