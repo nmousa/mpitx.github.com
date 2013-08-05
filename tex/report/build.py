@@ -10,6 +10,7 @@ PROPERTIES = { "doc_name" : "report", }
 def default():
     """Build the report"""
     build()
+    clean()
 
 @xnt.target
 def build():
