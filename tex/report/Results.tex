@@ -5,7 +5,7 @@
 
 Our first developed test program was a $ 10^9 $ element wise vector summation
 problem. This is a simple and, as we will see, a bad example of using a cluster
-to speed up the computation of a problem. Although we did see a increase in
+to speed up the computational time required. Although we did see a increase in
 performance, the cost of \gls{io} far out weighs the benefit. Specifically, to
 do the computation on one machine (one \gls{cpu}), it took a \gls{wall_time} of
 $254$ seconds (about $4$ minutes) and a \gls{cpu_time} of $13.7$ seconds.
@@ -62,18 +62,19 @@ threshold (in our case $200,000$), we can further sub-divide the grid to
 improve performance and maintain accuracy still.\\
 
 There are other algorithms for computing \texttt{N-Body} problems on the
-\gls{cpu} that are quite efficient, notably, the Barnes-Hutt Tree algorithm;
-however, using it would distort and confound the comparisons between \gls{cpu},
-\gls{gpu}, and \gls{cluster} implementations; foregoing to mention the
-complexities of implementing such an algorithm on \glspl{gpu} and over a
-\gls{cluster}.
+\gls{cpu} that are quite efficient, notably, the Barnes-Hut Tree
+algorithm\cite{barneshut1986}; however, using it would distort and confound the
+comparisons between \gls{cpu}, \gls{gpu}, and \gls{cluster} implementations,
+not to mention the complexities of implementing such an algorithm on
+\glspl{gpu} and over a \gls{cluster}.
 
 \subsubsection{N-Body --- CPU}
 
 In \gls{cpu} tests, we were only able to complete several of the problem sizes;
 the larger sizes are infeasible. Notably, the smaller sizes were computed in a
 relatively respectable amount of time. While the bigger sizes were time
-consuming, still being computed or not even attempted.
+consuming, not even attempted, or aborted. For example, the 2 million body
+problem was aborted after running for about 2 weeks.
 
 \begin{table}[htb]
 \centering{}
@@ -82,15 +83,15 @@ consuming, still being computed or not even attempted.
 \textbf{Size} & \textbf{User (seconds)} &
 \textbf{Sys (seconds)} & \textbf{Real (seconds)} \\
 \midrule{}
-2001          & 10.65   & 0.00    & 12.03 \\
+2001          & 28.81   & 0.02    & 30.77   \\
 \midrule{}
-20000         & 861.46  & 0.00    & 861.72 \\
+20000         & 2382.40 & 2.27    & 2393    \\
 \midrule{}
-200000        & 109306  & 18.05   & 109364 \\
+200000        & 113983  & 34.45   & 114349  \\
 \midrule{}
-2 million     & \dots{} & \dots{} & \dots{} \\
+2 million     & aborted & aborted & aborted \\
 \midrule{}
-20 million    & N/A     & N/A     & N/A \\
+20 million    & N/A     & N/A     & N/A     \\
 \bottomrule{}
 \end{tabular}
 \caption{\gls{cpu} N-Body simulation using particle-particle method}
@@ -102,7 +103,8 @@ consuming, still being computed or not even attempted.
 As noted above, the \gls{gpu} (\gls{cuda}) implementation uses the same
 computational method (\gls{p3m}). Using the \gls{gpu}, we were able to compute
 the $ 20,000,000 $ size problem and may be able to compute larger sets within a
-\emph{reasonable} amount of time.
+\emph{reasonable} amount of time. See \cref{tab:gpu_nbody} for a breakdown of
+the running times.
 
 \begin{table}[htb]
 \centering{}
@@ -111,18 +113,51 @@ the $ 20,000,000 $ size problem and may be able to compute larger sets within a
 \textbf{Size} & \textbf{User (seconds)} &
 \textbf{Sys (seconds)} & \textbf{Real (seconds)} \\
 \midrule{}
-2001          & 0.68    & 0.48    & 01.25 \\
+2001          & 10.08   & 1.52    & 14.14  \\
 \midrule{}
-20000         & 3.41    & 0.55    & 04.06 \\
+20000         & 22.30   & 2.46    & 26.82  \\
 \midrule{}
-200000        & 31.06   & 1.11    & 32.28 \\
+200000        & 44.63   & 4.84    & 52.86  \\
 \midrule{}
-2 million     & 347     & 11.93   & 361   \\
+2 million     & 186.59  & 21.23   & 217.60 \\
 \midrule{}
-20 million    & 115.47  & 120.65  & 13927 \\
+20 million    & 1289.24 & 159.29  & 1510   \\
 \bottomrule{}
 \end{tabular}
 \caption{Single \gls{gpu} (\gls{cuda}) N-Body simulation using \gls{p3m}
 method}
 \label{tab:gpu_nbody}
+\end{table}
+
+\subsubsection{N-Body --- 16 Node Cluster}
+
+Similar to the other solutions, we are still using the \gls{p3m} method for
+computing a single time step of the N-Body problem. Over 16 nodes, we were able
+to see drastic improvements over \gls{cpu} and \gls{cuda} implementations.
+Notably, in the $20,000$ problem size, the \gls{cluster} did nearly $19044\%$
+better than the \gls{cpu} and about $115\%$ better than a single \gls{gpu}.
+Further, in the $200,000$ problem size, we see the \gls{cluster} did about
+$535,743\%$ better versus \gls{cpu} and about $148\%$ better versus \gls{gpu}.
+See \cref{tab:cudampi_nbody} for times of each problem size.
+
+\begin{table}[htb]
+\centering{}
+\begin{tabular}{lccc}
+\toprule{}
+\textbf{Size} & \textbf{User (seconds)} &
+\textbf{Sys (seconds)} & \textbf{Real (seconds)} \\
+\midrule{}
+2001          & N/A     & N/A      & N/A     \\
+\midrule{}
+20000         & 0.17    & 0.032    & 12.50   \\
+\midrule{}
+200000        & 0.147   & 0.028    & 21.34   \\
+\midrule{}
+2 million     & 0.15    & 0.025    & 97.76   \\
+\midrule{}
+20 million    & 0.15    & 0.06     & 950.045 \\
+\bottomrule{}
+\end{tabular}
+\caption{16 node \gls{cluster} N-Body simulation using \gls{p3m} method}
+\label{tab:cudampi_nbody}
 \end{table}
