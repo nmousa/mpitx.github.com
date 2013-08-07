@@ -1,0 +1,82 @@
+/home/kballou/Dev/NBody_gpu_p3m/nbody/kernels.py:54: UserWarning: nvcc said it demoted types in source code it compiled--this is likely not what you want.
+  add_mod = SourceModule(add_template.render(kwargs))
+/home/kballou/Dev/NBody_gpu_p3m/nbody/kernels.py:54: UserWarning: The CUDA compiler suceeded, but said the following:
+ptxas /tmp/tmpxft_00006af3_00000000-5_kernel.ptx, line 90; warning : Double is not supported. Demoting to float
+
+  add_mod = SourceModule(add_template.render(kwargs))
+/home/kballou/Dev/NBody_gpu_p3m/nbody/kernels.py:55: UserWarning: nvcc said it demoted types in source code it compiled--this is likely not what you want.
+  step_mod = SourceModule(step_template.render(kwargs))
+/home/kballou/Dev/NBody_gpu_p3m/nbody/kernels.py:55: UserWarning: The CUDA compiler suceeded, but said the following:
+ptxas /tmp/tmpxft_00006b0f_00000000-5_kernel.ptx, line 85; warning : Double is not supported. Demoting to float
+
+  step_mod = SourceModule(step_template.render(kwargs))
+/home/kballou/Dev/NBody_gpu_p3m/nbody/kernels.py:54: UserWarning: The CUDA compiler suceeded, but said the following:
+ptxas /tmp/tmpxft_00006b2c_00000000-5_kernel.ptx, line 90; warning : Double is not supported. Demoting to float
+
+  add_mod = SourceModule(add_template.render(kwargs))
+/home/kballou/Dev/NBody_gpu_p3m/nbody/kernels.py:54: UserWarning: The CUDA compiler suceeded, but said the following:
+ptxas /tmp/tmpxft_00006b48_00000000-5_kernel.ptx, line 90; warning : Double is not supported. Demoting to float
+
+  add_mod = SourceModule(add_template.render(kwargs))
+/home/kballou/Dev/NBody_gpu_p3m/nbody/kernels.py:54: UserWarning: The CUDA compiler suceeded, but said the following:
+ptxas /tmp/tmpxft_00006b64_00000000-5_kernel.ptx, line 90; warning : Double is not supported. Demoting to float
+
+  add_mod = SourceModule(add_template.render(kwargs))
+/home/kballou/Dev/NBody_gpu_p3m/nbody/kernels.py:54: UserWarning: The CUDA compiler suceeded, but said the following:
+ptxas /tmp/tmpxft_00006b80_00000000-5_kernel.ptx, line 90; warning : Double is not supported. Demoting to float
+
+  add_mod = SourceModule(add_template.render(kwargs))
+/home/kballou/Dev/NBody_gpu_p3m/nbody/kernels.py:54: UserWarning: The CUDA compiler suceeded, but said the following:
+ptxas /tmp/tmpxft_00006b9c_00000000-5_kernel.ptx, line 90; warning : Double is not supported. Demoting to float
+
+  add_mod = SourceModule(add_template.render(kwargs))
+/home/kballou/Dev/NBody_gpu_p3m/nbody/kernels.py:54: UserWarning: The CUDA compiler suceeded, but said the following:
+ptxas /tmp/tmpxft_00006bb8_00000000-5_kernel.ptx, line 90; warning : Double is not supported. Demoting to float
+
+  add_mod = SourceModule(add_template.render(kwargs))
+/home/kballou/Dev/NBody_gpu_p3m/nbody/kernels.py:54: UserWarning: The CUDA compiler suceeded, but said the following:
+ptxas /tmp/tmpxft_00006bd4_00000000-5_kernel.ptx, line 90; warning : Double is not supported. Demoting to float
+
+  add_mod = SourceModule(add_template.render(kwargs))
+/home/kballou/Dev/NBody_gpu_p3m/nbody/kernels.py:54: UserWarning: The CUDA compiler suceeded, but said the following:
+ptxas /tmp/tmpxft_00006bf0_00000000-5_kernel.ptx, line 90; warning : Double is not supported. Demoting to float
+
+  add_mod = SourceModule(add_template.render(kwargs))
+/home/kballou/Dev/NBody_gpu_p3m/nbody/kernels.py:54: UserWarning: The CUDA compiler suceeded, but said the following:
+ptxas /tmp/tmpxft_00006c0c_00000000-5_kernel.ptx, line 90; warning : Double is not supported. Demoting to float
+
+  add_mod = SourceModule(add_template.render(kwargs))
+/home/kballou/Dev/NBody_gpu_p3m/nbody/kernels.py:54: UserWarning: The CUDA compiler suceeded, but said the following:
+ptxas /tmp/tmpxft_00006c28_00000000-5_kernel.ptx, line 90; warning : Double is not supported. Demoting to float
+
+  add_mod = SourceModule(add_template.render(kwargs))
+/home/kballou/Dev/NBody_gpu_p3m/nbody/kernels.py:54: UserWarning: The CUDA compiler suceeded, but said the following:
+ptxas /tmp/tmpxft_00006c44_00000000-5_kernel.ptx, line 90; warning : Double is not supported. Demoting to float
+
+  add_mod = SourceModule(add_template.render(kwargs))
+/home/kballou/Dev/NBody_gpu_p3m/nbody/kernels.py:54: UserWarning: The CUDA compiler suceeded, but said the following:
+ptxas /tmp/tmpxft_00006c60_00000000-5_kernel.ptx, line 90; warning : Double is not supported. Demoting to float
+
+  add_mod = SourceModule(add_template.render(kwargs))
+/home/kballou/Dev/NBody_gpu_p3m/nbody/kernels.py:54: UserWarning: The CUDA compiler suceeded, but said the following:
+ptxas /tmp/tmpxft_00006c7c_00000000-5_kernel.ptx, line 90; warning : Double is not supported. Demoting to float
+
+  add_mod = SourceModule(add_template.render(kwargs))
+/home/kballou/Dev/NBody_gpu_p3m/nbody/kernels.py:54: UserWarning: The CUDA compiler suceeded, but said the following:
+ptxas /tmp/tmpxft_00006c98_00000000-5_kernel.ptx, line 90; warning : Double is not supported. Demoting to float
+
+  add_mod = SourceModule(add_template.render(kwargs))
+/home/kballou/Dev/NBody_gpu_p3m/nbody/kernels.py:54: UserWarning: The CUDA compiler suceeded, but said the following:
+ptxas /tmp/tmpxft_00006cb4_00000000-5_kernel.ptx, line 90; warning : Double is not supported. Demoting to float
+
+  add_mod = SourceModule(add_template.render(kwargs))
+/home/kballou/Dev/NBody_gpu_p3m/nbody/kernels.py:54: UserWarning: The CUDA compiler suceeded, but said the following:
+ptxas /tmp/tmpxft_00006cd0_00000000-5_kernel.ptx, line 90; warning : Double is not supported. Demoting to float
+
+  add_mod = SourceModule(add_template.render(kwargs))
+/home/kballou/Dev/NBody_gpu_p3m/nbody/kernels.py:54: UserWarning: The CUDA compiler suceeded, but said the following:
+ptxas /tmp/tmpxft_00006cec_00000000-5_kernel.ptx, line 90; warning : Double is not supported. Demoting to float
+
+  add_mod = SourceModule(add_template.render(kwargs))
+22.28user 2.54system 0:26.80elapsed 92%CPU (0avgtext+0avgdata 50120maxresident)k
+1240inputs+1024outputs (7major+1067689minor)pagefaults 0swaps

@@ -1,0 +1,28 @@
+7.80user 26.59system 4:57:22elapsed 0%CPU (0avgtext+0avgdata 1878272maxresident)k
+41219120inputs+8outputs (12356major+8513499minor)pagefaults 0swaps
+10.04user 40.55system 4:57:22elapsed 0%CPU (0avgtext+0avgdata 1899604maxresident)k
+41214896inputs+8outputs (12224major+8277864minor)pagefaults 0swaps
+10.24user 40.94system 4:57:22elapsed 0%CPU (0avgtext+0avgdata 1898656maxresident)k
+41219800inputs+8outputs (12255major+8248834minor)pagefaults 0swaps
+10.05user 39.51system 4:57:22elapsed 0%CPU (0avgtext+0avgdata 1898684maxresident)k
+41215200inputs+8outputs (12375major+8344639minor)pagefaults 0swaps
+10.27user 39.15system 4:57:22elapsed 0%CPU (0avgtext+0avgdata 1899300maxresident)k
+41218424inputs+8outputs (12184major+8395559minor)pagefaults 0swaps
+9.88user 41.50system 4:57:22elapsed 0%CPU (0avgtext+0avgdata 1905220maxresident)k
+41202008inputs+8outputs (12016major+8577756minor)pagefaults 0swaps
+10.01user 39.70system 4:57:22elapsed 0%CPU (0avgtext+0avgdata 1903000maxresident)k
+41207000inputs+8outputs (12188major+8318516minor)pagefaults 0swaps
+9.75user 40.86system 4:57:22elapsed 0%CPU (0avgtext+0avgdata 1906096maxresident)k
+41199232inputs+8outputs (11917major+8094589minor)pagefaults 0swaps
+10.34user 35.01system 4:57:23elapsed 0%CPU (0avgtext+0avgdata 1901464maxresident)k
+41190624inputs+8outputs (11770major+8421677minor)pagefaults 0swaps
+7.42user 28.48system 4:57:23elapsed 0%CPU (0avgtext+0avgdata 1899632maxresident)k
+41216656inputs+8outputs (12294major+8364320minor)pagefaults 0swaps
+9.73user 40.52system 4:57:22elapsed 0%CPU (0avgtext+0avgdata 1897124maxresident)k
+41213616inputs+8outputs (12141major+8166002minor)pagefaults 0swaps
+9.80user 41.02system 4:57:23elapsed 0%CPU (0avgtext+0avgdata 1901028maxresident)k
+41218648inputs+8outputs (12368major+8082622minor)pagefaults 0swaps
+10.25user 41.07system 4:57:23elapsed 0%CPU (0avgtext+0avgdata 1885212maxresident)k
+41187888inputs+8outputs (11990major+8212314minor)pagefaults 0swaps
+0.20user 0.52system 4:57:27elapsed 0%CPU (0avgtext+0avgdata 6808maxresident)k
+7448inputs+8outputs (69major+17080minor)pagefaults 0swaps

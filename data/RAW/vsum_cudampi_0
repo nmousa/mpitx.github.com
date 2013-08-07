@@ -1,0 +1,28 @@
+8.51user 26.41system 4:57:32elapsed 0%CPU (0avgtext+0avgdata 1875612maxresident)k
+41284480inputs+8outputs (12498major+8140523minor)pagefaults 0swaps
+10.98user 40.23system 4:57:32elapsed 0%CPU (0avgtext+0avgdata 1893776maxresident)k
+41272184inputs+8outputs (12430major+8581241minor)pagefaults 0swaps
+11.17user 39.88system 4:57:32elapsed 0%CPU (0avgtext+0avgdata 1895216maxresident)k
+41307352inputs+8outputs (12679major+8385448minor)pagefaults 0swaps
+11.00user 39.79system 4:57:32elapsed 0%CPU (0avgtext+0avgdata 1889132maxresident)k
+41273528inputs+8outputs (12316major+8581560minor)pagefaults 0swaps
+8.35user 28.26system 4:57:32elapsed 0%CPU (0avgtext+0avgdata 1879536maxresident)k
+41020728inputs+8outputs (12650major+8309498minor)pagefaults 0swaps
+10.71user 41.00system 4:57:32elapsed 0%CPU (0avgtext+0avgdata 1893676maxresident)k
+41292720inputs+8outputs (12540major+8122221minor)pagefaults 0swaps
+11.60user 40.56system 4:57:32elapsed 0%CPU (0avgtext+0avgdata 1897908maxresident)k
+41265176inputs+8outputs (12263major+9400681minor)pagefaults 0swaps
+11.23user 40.64system 4:57:32elapsed 0%CPU (0avgtext+0avgdata 1889912maxresident)k
+41265120inputs+8outputs (12446major+8146036minor)pagefaults 0swaps
+11.13user 40.60system 4:57:32elapsed 0%CPU (0avgtext+0avgdata 1892268maxresident)k
+41288792inputs+8outputs (12519major+8552752minor)pagefaults 0swaps
+10.97user 37.13system 4:57:32elapsed 0%CPU (0avgtext+0avgdata 1898396maxresident)k
+41278224inputs+8outputs (12476major+8326861minor)pagefaults 0swaps
+11.01user 41.09system 4:57:32elapsed 0%CPU (0avgtext+0avgdata 1898564maxresident)k
+41291928inputs+8outputs (12551major+8423078minor)pagefaults 0swaps
+11.19user 41.28system 4:57:32elapsed 0%CPU (0avgtext+0avgdata 1896276maxresident)k
+41288456inputs+8outputs (12544major+8446710minor)pagefaults 0swaps
+11.55user 41.58system 4:57:32elapsed 0%CPU (0avgtext+0avgdata 1881856maxresident)k
+41297080inputs+8outputs (12564major+7429468minor)pagefaults 0swaps
+0.20user 0.52system 4:57:36elapsed 0%CPU (0avgtext+0avgdata 6812maxresident)k
+6864inputs+8outputs (90major+17029minor)pagefaults 0swaps

@@ -1,0 +1,17 @@
+mpirun: killing job...
+
+Traceback (most recent call last):
+  File "/home/kballou/.local/bin/mpi_run.py", line 17, in <module>
+    err = subprocess.call(mpi_cmd)
+  File "/usr/lib/python3.3/subprocess.py", line 522, in call
+    return p.wait(timeout=timeout)
+  File "/usr/lib/python3.3/subprocess.py", line 1528, in wait
+    (pid, sts) = self._try_wait(0)
+  File "/usr/lib/python3.3/subprocess.py", line 1485, in _try_wait
+    (pid, sts) = _eintr_retry_call(os.waitpid, self.pid, wait_flags)
+  File "/usr/lib/python3.3/subprocess.py", line 476, in _eintr_retry_call
+    return func(*args)
+KeyboardInterrupt
+Command exited with non-zero status 1
+0.05user 0.01system 0:00.23elapsed 31%CPU (0avgtext+0avgdata 6840maxresident)k
+0inputs+8outputs (0major+4310minor)pagefaults 0swaps

@@ -1,0 +1,169 @@
+Traceback (most recent call last):
+  File "run.py", line 17, in <module>
+    slave.main(RANK)
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 124, in main
+    compute(particles)
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 28, in compute
+    R)
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 118, in compute_grid
+    compute_mesh(mesh_64, grid_spread)
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 115, in compute_mesh
+    kernel_mesh(grids, grid_spread)
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 75, in kernel_mesh
+    cuda.In(grids_m), block=block)
+  File "/usr/lib/python2.7/site-packages/pycuda/driver.py", line 355, in function_call
+    handlers, arg_buf = _build_arg_buf(args)
+  File "/usr/lib/python2.7/site-packages/pycuda/driver.py", line 125, in _build_arg_buf
+    arg_data.append(int(arg.get_device_alloc()))
+  File "/usr/lib/python2.7/site-packages/pycuda/driver.py", line 59, in get_device_alloc
+    self.dev_alloc = mem_alloc_like(self.array)
+  File "/usr/lib/python2.7/site-packages/pycuda/driver.py", line 608, in mem_alloc_like
+    return mem_alloc(ary.nbytes)
+pycuda._driver.LogicError: cuMemAlloc failed: invalid value
+Traceback (most recent call last):
+  File "run.py", line 17, in <module>
+    slave.main(RANK)
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 124, in main
+    compute(particles)
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 28, in compute
+    R)
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 118, in compute_grid
+Traceback (most recent call last):
+  File "run.py", line 17, in <module>
+    compute_mesh(mesh_64, grid_spread)
+    slave.main(RANK)
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 124, in main
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 115, in compute_mesh
+    compute(particles)
+    kernel_mesh(grids, grid_spread)
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 28, in compute
+    R)
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 75, in kernel_mesh
+    cuda.In(grids_m), block=block)
+  File "/usr/lib/python2.7/site-packages/pycuda/driver.py", line 355, in function_call
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 118, in compute_grid
+    handlers, arg_buf = _build_arg_buf(args)
+    compute_mesh(mesh_64, grid_spread)
+Traceback (most recent call last):
+  File "run.py", line 17, in <module>
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 115, in compute_mesh
+  File "/usr/lib/python2.7/site-packages/pycuda/driver.py", line 125, in _build_arg_buf
+    arg_data.append(int(arg.get_device_alloc()))
+  File "/usr/lib/python2.7/site-packages/pycuda/driver.py", line 59, in get_device_alloc
+    slave.main(RANK)
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 124, in main
+    kernel_mesh(grids, grid_spread)
+    self.dev_alloc = mem_alloc_like(self.array)
+    compute(particles)
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 75, in kernel_mesh
+  File "/usr/lib/python2.7/site-packages/pycuda/driver.py", line 608, in mem_alloc_like
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 28, in compute
+    cuda.In(grids_m), block=block)
+  File "/usr/lib/python2.7/site-packages/pycuda/driver.py", line 355, in function_call
+    return mem_alloc(ary.nbytes)
+    R)
+pycuda._driver.LogicError: cuMemAlloc failed: invalid value
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 118, in compute_grid
+    handlers, arg_buf = _build_arg_buf(args)
+  File "/usr/lib/python2.7/site-packages/pycuda/driver.py", line 125, in _build_arg_buf
+    compute_mesh(mesh_64, grid_spread)
+    arg_data.append(int(arg.get_device_alloc()))
+  File "/usr/lib/python2.7/site-packages/pycuda/driver.py", line 59, in get_device_alloc
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 115, in compute_mesh
+    self.dev_alloc = mem_alloc_like(self.array)
+    kernel_mesh(grids, grid_spread)
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 75, in kernel_mesh
+  File "/usr/lib/python2.7/site-packages/pycuda/driver.py", line 608, in mem_alloc_like
+    cuda.In(grids_m), block=block)
+  File "/usr/lib/python2.7/site-packages/pycuda/driver.py", line 355, in function_call
+    return mem_alloc(ary.nbytes)
+Traceback (most recent call last):
+  File "run.py", line 17, in <module>
+    handlers, arg_buf = _build_arg_buf(args)
+pycuda._driver.LogicError: cuMemAlloc failed: invalid value
+  File "/usr/lib/python2.7/site-packages/pycuda/driver.py", line 125, in _build_arg_buf
+    slave.main(RANK)
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 124, in main
+    compute(particles)
+    arg_data.append(int(arg.get_device_alloc()))
+  File "/usr/lib/python2.7/site-packages/pycuda/driver.py", line 59, in get_device_alloc
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 28, in compute
+    self.dev_alloc = mem_alloc_like(self.array)
+    R)
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 118, in compute_grid
+  File "/usr/lib/python2.7/site-packages/pycuda/driver.py", line 608, in mem_alloc_like
+        return mem_alloc(ary.nbytes)
+compute_mesh(mesh_64, grid_spread)
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 115, in compute_mesh
+pycuda._driver.LogicError: cuMemAlloc failed: invalid value
+    kernel_mesh(grids, grid_spread)
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 75, in kernel_mesh
+    cuda.In(grids_m), block=block)
+  File "/usr/lib/python2.7/site-packages/pycuda/driver.py", line 355, in function_call
+    handlers, arg_buf = _build_arg_buf(args)
+  File "/usr/lib/python2.7/site-packages/pycuda/driver.py", line 125, in _build_arg_buf
+    arg_data.append(int(arg.get_device_alloc()))
+  File "/usr/lib/python2.7/site-packages/pycuda/driver.py", line 59, in get_device_alloc
+    self.dev_alloc = mem_alloc_like(self.array)
+  File "/usr/lib/python2.7/site-packages/pycuda/driver.py", line 608, in mem_alloc_like
+    return mem_alloc(ary.nbytes)
+pycuda._driver.LogicError: cuMemAlloc failed: invalid value
+Traceback (most recent call last):
+  File "run.py", line 17, in <module>
+    slave.main(RANK)
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 124, in main
+    compute(particles)
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 28, in compute
+    R)
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 118, in compute_grid
+    compute_mesh(mesh_64, grid_spread)
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 115, in compute_mesh
+    kernel_mesh(grids, grid_spread)
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 75, in kernel_mesh
+    cuda.In(grids_m), block=block)
+  File "/usr/lib/python2.7/site-packages/pycuda/driver.py", line 355, in function_call
+    handlers, arg_buf = _build_arg_buf(args)
+  File "/usr/lib/python2.7/site-packages/pycuda/driver.py", line 125, in _build_arg_buf
+    arg_data.append(int(arg.get_device_alloc()))
+  File "/usr/lib/python2.7/site-packages/pycuda/driver.py", line 59, in get_device_alloc
+    self.dev_alloc = mem_alloc_like(self.array)
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/pycuda/driver.py", line 608, in mem_alloc_like
+  File "run.py", line 17, in <module>
+    return mem_alloc(ary.nbytes)
+pycuda._driver.LogicError: cuMemAlloc failed: invalid value
+    slave.main(RANK)
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 124, in main
+    compute(particles)
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 28, in compute
+    R)
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 118, in compute_grid
+    compute_mesh(mesh_64, grid_spread)
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 115, in compute_mesh
+    kernel_mesh(grids, grid_spread)
+  File "/home/kballou/Dev/NBody/nbody/slave.py", line 75, in kernel_mesh
+    cuda.In(grids_m), block=block)
+  File "/usr/lib/python2.7/site-packages/pycuda/driver.py", line 355, in function_call
+    handlers, arg_buf = _build_arg_buf(args)
+  File "/usr/lib/python2.7/site-packages/pycuda/driver.py", line 125, in _build_arg_buf
+    arg_data.append(int(arg.get_device_alloc()))
+  File "/usr/lib/python2.7/site-packages/pycuda/driver.py", line 59, in get_device_alloc
+    self.dev_alloc = mem_alloc_like(self.array)
+  File "/usr/lib/python2.7/site-packages/pycuda/driver.py", line 608, in mem_alloc_like
+    return mem_alloc(ary.nbytes)
+pycuda._driver.LogicError: cuMemAlloc failed: invalid value
+Traceback (most recent call last):
+  File "/home/kballou/.local/bin/mpi_run.py", line 17, in <module>
+    err = subprocess.call(mpi_cmd)
+  File "/usr/lib/python3.3/subprocess.py", line 522, in call
+    return p.wait(timeout=timeout)
+  File "/usr/lib/python3.3/subprocess.py", line 1528, in wait
+    (pid, sts) = self._try_wait(0)
+  File "/usr/lib/python3.3/subprocess.py", line 1485, in _try_wait
+    (pid, sts) = _eintr_retry_call(os.waitpid, self.pid, wait_flags)
+  File "/usr/lib/python3.3/subprocess.py", line 476, in _eintr_retry_call
+    return func(*args)
+KeyboardInterrupt
+Command exited with non-zero status 1
+0.15user 0.06system 20:32.92elapsed 0%CPU (0avgtext+0avgdata 6836maxresident)k
+0inputs+32outputs (0major+18072minor)pagefaults 0swaps

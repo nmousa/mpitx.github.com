@@ -1,0 +1,27 @@
+Traceback (most recent call last):
+  File "run.py", line 15, in <module>
+    master.main(sys.argv[1:], SIZE - 1) # SIZE - master
+  File "/home/kballou/Dev/NBody/nbody/master.py", line 119, in main
+    N, R, rx, ry, vx, vy, fx, fy, m = nbody.read_galaxy(filename=args[0])
+  File "/home/kballou/Dev/NBody/nbody/__init__.py", line 77, in read_galaxy
+    rx_mmap = np.memmap(__rx_file, dtype=np.float32, shape=(N,), mode='w+')
+  File "/usr/lib/python2.7/site-packages/numpy/core/memmap.py", line 208, in __new__
+    fid = open(filename, (mode == 'c' and 'r' or mode)+'b')
+IOError: [Errno 2] No such file or directory: '/home/kballou/tmp/nbody/cudampi/rx.npy'
+mpirun: killing job...
+
+Traceback (most recent call last):
+  File "/home/kballou/.local/bin/mpi_run.py", line 17, in <module>
+    err = subprocess.call(mpi_cmd)
+  File "/usr/lib/python3.3/subprocess.py", line 522, in call
+    return p.wait(timeout=timeout)
+  File "/usr/lib/python3.3/subprocess.py", line 1528, in wait
+    (pid, sts) = self._try_wait(0)
+  File "/usr/lib/python3.3/subprocess.py", line 1485, in _try_wait
+    (pid, sts) = _eintr_retry_call(os.waitpid, self.pid, wait_flags)
+  File "/usr/lib/python3.3/subprocess.py", line 476, in _eintr_retry_call
+    return func(*args)
+KeyboardInterrupt
+Command exited with non-zero status 1
+0.17user 0.16system 1:20:22elapsed 0%CPU (0avgtext+0avgdata 6836maxresident)k
+2776inputs+16outputs (58major+16015minor)pagefaults 0swaps
