@@ -56,17 +56,14 @@ used standardized interface for communication among a group of computers. It
 facilitates the passing of messages between the nodes in the cluster.
 
 Our framework will be easy to use on a heterogeneous cluster of computers, each
-containing a \Gls{cuda}-capable \gls{gpu}\@. The framework will optimize the
-scheduling of low-level computational tasks based on the capabilities of the
-varied \glspl{gpu} in the cluster. The framework will provide the system
-administrator with the ability to easily configure it to allow optimal use of
-the individual \glspl{gpu}. Overall, the goal is to create a framework that is
-simple and easy to use, facilitating the combination of two powerful means of
-computing to further increase the throughput and overall computing power of a
-cluster.
+containing a \Gls{cuda}-capable \gls{gpu}\@. The framework shall abstract away
+the difficulties of creating distributed and parallel code against a
+\gls{cluster}. The framework shall expose certain debugging and profiling
+mechanisms as well. Further, we also wish to develop and package together code
+and configuration to facilitate system administrators with \gls{cluster}
+management.
 
-We plan to evaluate the efficacy of our framework on the problem of vessel
-extraction. Currently, we use a single \gls{gpu} to extract vascular structures
-from a CT angiography scan which is computationally intensive
-\cite{erdt2008automatic}. Using the framework to accelerate the computational
-task will provide us with key insights on its usability.
+We plan to evaluate the efficacy of our framework using several problems: the
+N-Body problem and the process of vessel extraction from CT angiography scans,
+to name a few. Both are computationally intensive and have unique requirements
+of inter-node communication during execution \cite{erdt2008automatic}.
