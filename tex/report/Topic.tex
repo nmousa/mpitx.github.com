@@ -20,27 +20,27 @@ perform more tasks at the same time.
 In computer architecture there are two main ways of processing: serial and
 parallel. \Glspl{cpu} consist of a small number of cores (microprocessors) that
 are best at processing serial data. On the other hand, \glspl{gpu} consist of
-thousands of cores that are designed for processing parallel data. Given a
+thousands of cores that are designed for processing data in parallel. Given a
 program, we can run the parallel portions of the code on \glspl{gpu} while the
 serial portions run on the \gls{cpu}\@. The programmable \gls{gpu} has evolved
 into a highly parallel, multithreaded, many core processor with tremendous
 computational power. \Gls{cuda} is an architecture for utilizing and
 distributing computational tasks onto a computer's \glspl{gpu}. As a parallel
 computing platform and programming model, \gls{cuda} utilizes the power of
-\gls{gpu} to achieve dramatic increases in computing performance
+a \gls{gpu} to achieve dramatic increases in computing performance
 \cite{website:cudaCProgrammingGuide}. This fact is well illustrated in
 \cref{fig:flops_gpu_vs_cpu}.
 
 \begin{figure}[htb]
 \centering
 \includegraphics[scale=0.75]{floatingPoint.png}
-\caption{Floating-Point Operations per Second for the \gls{cpu} and
+\caption{Theoretical Floating-Point Operations per Second for the \gls{cpu} and
          \gls{gpu} \cite{website:cudaCProgrammingGuide}}
 \label{fig:flops_gpu_vs_cpu}
 \end{figure}
 
 Today, more than one million \gls{cuda}-enabled \glspl{gpu} are used by
-software developers, scientists and researchers in order to obtained a large
+software developers, scientists and researchers in order to obtain a large
 performance gain in wide-ranging applications
 \cite{website:cudaCProgrammingGuide}. A major challenge remains in being
 able to seamlessly integrate multiple workstations to further parallelize the
