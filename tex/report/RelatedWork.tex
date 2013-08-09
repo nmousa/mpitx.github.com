@@ -76,18 +76,15 @@ computing that our framework could use as an example for certain problems.
 \subsection{GPUDirect}
 
 Currently \gls{gpu} based clusters are becoming more popular.
-\texttt{GPUDirect} is a \gls{gpu} based clustering using Infiniband, an
-architecture specification that defines a connection between processor nodes.
-\texttt{GPUDirect} allows for multiple \glspl{gpu} to communicate with each
-other directly by giving \glspl{gpu} ability to initiate and manage memory
-transfer \cite{website:YouTube}. Prior to GPUDirect, \gls{gpu}-to-\gls{gpu}
-communication involved the \gls{cpu}. \texttt{GPUDirect} performance gain
-exceed \gls{cpu} solutions. Direct \gls{gpu}-to-\gls{gpu} communication is less
-computationally expensive since less messages will be sent and received via the
-host server. An issue with \texttt{GPUDirect} is that it requires specific
-hardware. The proposed framework will serve as software solution to avoid
-hardware limitations.
-
+\texttt{GPUDirect} is a \gls{gpu} \gls{rdma} communication specification using
+\gls{ib}. \texttt{GPUDirect} allows for multiple \glspl{gpu} to communicate
+with each other directly by giving \glspl{gpu} the ability to directly copy
+memory to another \gls{gpu} \cite{website:youtube_gpudirect}. Prior to
+GPUDirect, \gls{gpu}-to-\gls{gpu} communication involved the \gls{cpu}.
+\texttt{GPUDirect} performance gain exceed \gls{cpu} solutions. Direct
+\gls{gpu}-to-\gls{gpu} communication is less computationally expensive since
+less messages will be sent and received via the host server. An issue with
+\texttt{GPUDirect} is that it requires specific hardware.
 
 \subsection{MPI}
 
