@@ -31,24 +31,13 @@ We will be using \gls{cuda}, and in particular, \texttt{pyCUDA}, because of
 existing knowledge of the library/ framework and also because it is a well
 established library for \gls{gpu} computing.
 
+\subsection{\texttt{OpenCUDA+MPI}}
 
-\subsection{\texttt{CUDA+MPI}}
-
-Our framework's goal is to be able to manage the job queue to be run on
-\glspl{gpu} for a cluster of \gls{gpu}-capable computers. As more
-implementation work is done one or more of the parameters listed below will be
-considered to decide which particular job to run.
-
-\begin{itemize}
-    \item Job priority
-    \item Compute resource availability
-    \item Execution time allocated to user
-    \item Number of simultaneous jobs allowed for a node
-    \item Estimated execution time
-    \item Elapsed execution time
-    \item Availability of devices
-\end{itemize}
-
+Our frameworks' goal is to make accessible the power of \gls{cluster} computing
+without necessarily knowing in-depth the complexities of inter-computer related
+communication. Further, in doing so, we would like to expose functionality that
+may not be available even in more established \gls{cluster} libraries and
+frameworks. Namely, facilities for debugging and profiling.
 
 \subsection{Testing}
 
